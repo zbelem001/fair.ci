@@ -1,0 +1,162 @@
+
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-stone-950/80 backdrop-blur-md shadow-[0_20px_50px_rgba(157,67,0,0.08)]">
+<nav class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+<div class="text-2xl font-black text-orange-500 tracking-tighter">Fair.ci</div>
+<div class="hidden md:flex flex-1 max-w-md mx-8">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-stone-400">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-stone-50 border-none rounded-full focus:ring-2 focus:ring-primary-container text-sm" placeholder="Search unique artisan goods..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-stone-600 hover:text-orange-500 transition-colors duration-200 active:scale-95">
+<span class="material-symbols-outlined">shopping_basket</span>
+</button>
+<button class="p-2 text-stone-600 hover:text-orange-500 transition-colors duration-200 active:scale-95">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</nav>
+</header>
+<main class="pt-24 pb-32 max-w-7xl mx-auto px-6">
+<!-- Hero Section: Digital Artisan Vision -->
+<section class="relative rounded-3xl overflow-hidden mb-12 aspect-[21/9] flex items-center">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="Interior of a sun-drenched pottery studio with clay vases on wooden shelves and warm morning light filtering through windows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCo_DDmU8DOJPybcjgUgYIyDzAONyoK13eOPlzXnyVYL36Rk9ZT98ypUFNWQxhXt5vUXEDuIGc6S4waIcmKbUQ8OpXiI4ysiQz9RDsfVpHYhPjRYF9qsp6m-KYLNFleQicBGPA_cxjtFRLrZRcUQAZfDg1b1-OQL89gcVegbSQynH6KpzWctMN3svT09W8jwhVoMXJOj_g_kXleJ9EUg9_XOEiSaviwuMqcA2-fFrsrppDn1oUSjCLGD1hfeSYyzI4LVxFCZwk1-Yw"/>
+<div class="absolute inset-0 bg-gradient-to-r from-on-surface/60 to-transparent"></div>
+<div class="relative z-10 px-12 max-w-2xl">
+<span class="inline-block px-4 py-1 rounded-full bg-primary-container text-white text-xs font-bold tracking-widest uppercase mb-4">Local Craftsmanship</span>
+<h1 class="text-5xl md:text-6xl font-extrabold text-white leading-tight tracking-tighter mb-6">Support your local <span class="text-primary-fixed">artisans</span> directly.</h1>
+<p class="text-lg text-white/90 mb-8 font-light max-w-md">Discover curated collections from neighbors. From hand-poured candles to bespoke furniture, Fair.ci connects you to the heart of local commerce.</p>
+<div class="flex gap-4">
+<button routerLink="/register-vendor" class="px-8 py-4 bg-gradient-to-r from-primary to-primary-container text-white rounded-xl font-bold shadow-[0_20px_50px_rgba(157,67,0,0.15)] hover:scale-105 transition-transform">Créer ma boutique</button>
+</div>
+</div>
+</section>
+<!-- Category Filter Chips -->
+<section class="mb-12">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-2xl font-bold tracking-tight">Browse by Category</h2>
+<button class="text-primary font-semibold text-sm hover:underline">View all</button>
+</div>
+<div class="flex gap-3 overflow-x-auto pb-4 no-scrollbar">
+<button class="flex-none px-6 py-3 bg-primary-container text-white rounded-full font-bold shadow-lg shadow-primary-container/20">All Goods</button>
+<button class="flex-none px-6 py-3 bg-surface-container-low text-on-surface hover:bg-surface-container-high transition-colors rounded-full font-medium">Electronics</button>
+<button class="flex-none px-6 py-3 bg-surface-container-low text-on-surface hover:bg-surface-container-high transition-colors rounded-full font-medium">Fashion</button>
+<button class="flex-none px-6 py-3 bg-surface-container-low text-on-surface hover:bg-surface-container-high transition-colors rounded-full font-medium">Food &amp; Beverages</button>
+<button class="flex-none px-6 py-3 bg-surface-container-low text-on-surface hover:bg-surface-container-high transition-colors rounded-full font-medium">Home Services</button>
+<button class="flex-none px-6 py-3 bg-surface-container-low text-on-surface hover:bg-surface-container-high transition-colors rounded-full font-medium">Handcrafted Jewelry</button>
+<button class="flex-none px-6 py-3 bg-surface-container-low text-on-surface hover:bg-surface-container-high transition-colors rounded-full font-medium">Garden &amp; Outdoor</button>
+</div>
+</section>
+<!-- Product Grid: Asymmetric Layout -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Product Card 1 -->
+<div class="group cursor-pointer">
+<div class="aspect-[4/5] rounded-2xl overflow-hidden bg-surface-container mb-4">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Close up of a minimalist white ceramic vase with a single dried flower on a light wooden table with soft shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClPu_eQiQ-i2FJ3Z6cXPxGv4n8Ct3N0aGdD9bGI9D5EDUIYQrWwOLexOC8detP0LgDGUHpeHfkSNF_nkkxc3cbPL_DzSo20OdwiSigvksy8dBz8dvzyYNYv-MWwPSxH-uBVPmetLK4AKNaiDh1-ZTffcO6ip4vyskxJwMNpYAEDAUsW5DZmh9fJ8GAa9w7P_8NeFX_o2G0kVlsoqmLhIgQvLlzhPnJC7hBwVwgIDD7yw5Mv8OhEGpIMARY1vp_9j5me-X5x3pWIkk"/>
+</div>
+<div class="px-2">
+<p class="text-xs text-secondary font-medium mb-1">Studio Aris</p>
+<h3 class="text-lg font-bold text-on-surface mb-2 tracking-tight">Hand-Thrown Terracotta Vase</h3>
+<p class="text-primary-container font-black text-xl">$45.00</p>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="group cursor-pointer">
+<div class="aspect-[4/5] rounded-2xl overflow-hidden bg-surface-container mb-4">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Artisanal organic coffee beans in a craft paper bag with a vintage label on a dark textured background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4EnM5WU_APX4Y9tYT_kJEKXGzpDw05vefQdBURlbCDfGpUR0c8qGDd8n2kC06ShDF1h5gSc_8gCNnm5FsxSghJOpR-6GcW9Nc8kDnAl28YJlV-Xqlbn01dPdnfEpTBy0m9Gfqd4GopOlx0dCKm96_jwA3sgZbuzOqUr_tIDuPOWV34NuEXvHUaGBxvpRlsePBq7QvkzvDl2DU2YMiM4FuLNgX4qH4fY2WiDwqbFV1fssV_JvAqUs5sufqC034O4qbcJKT-lSp4lo"/>
+</div>
+<div class="px-2">
+<p class="text-xs text-secondary font-medium mb-1">The Roast House</p>
+<h3 class="text-lg font-bold text-on-surface mb-2 tracking-tight">Highland Whole Bean Coffee</h3>
+<p class="text-primary-container font-black text-xl">$22.00</p>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="group cursor-pointer">
+<div class="aspect-[4/5] rounded-2xl overflow-hidden bg-surface-container mb-4">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Draped hand-woven linen shirt in earth tones hanging on a minimalist wooden rack in a bright airy room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwEOzCPoivvQ9caN9Kz6OHR5II6YC4Rc31uIJ2wd-2FPxRBc0c76WOKKPB0XW6aQNsWP7Q6sE4sD8xFHeAZ8Y8CwCtWRwBVns05qm8FK3sLPyVtSqzSkvlqoyQQt_fUzBZfOTZzMr-LAeBjvl-APXCnOKye_dHaIc2w4XipFCnqaGLZ1LnCv3eR2AH_9ZbLurfUQJJ-BWp_pYOnvErFjrLWSqdg_pQ1EAW3IeY9mDy8B5t49LFS239upwjv27AURNz1gzQQlZ8wUk"/>
+</div>
+<div class="px-2">
+<p class="text-xs text-secondary font-medium mb-1">Ethical Threads</p>
+<h3 class="text-lg font-bold text-on-surface mb-2 tracking-tight">Raw Linen Oversized Shirt</h3>
+<p class="text-primary-container font-black text-xl">$89.00</p>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="group cursor-pointer">
+<div class="aspect-[4/5] rounded-2xl overflow-hidden bg-surface-container mb-4">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Modern high-performance green sneakers placed on a reflective clean surface with minimalist lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAc-k8poxxS8mNt9S1_iA1vCN4t8rBnew0wac8BDmJidKXMRi1dgKLFLlLT8MAibsZ-mTQtpRUFXS1UkUgKYbkjClG7HtUr4fbYMvb8eaKyuMfkV-oF_bWG70CMklIX1LN7n8G5RrjzxfFYR-OMGfzWH_9NVYAlIh7rrZMCah8Z6W8npefo7DGK3MqU7QIMQh746AXFCAuqHZb5u0_zTgREcDJ7w1nODOoqqpoyrxcOyS0lSLbkjinM7oi8QfUFGbKxfn_dqSzgdG8"/>
+</div>
+<div class="px-2">
+<p class="text-xs text-secondary font-medium mb-1">EcoStride</p>
+<h3 class="text-lg font-bold text-on-surface mb-2 tracking-tight">Sustainable Mesh Trainers</h3>
+<p class="text-primary-container font-black text-xl">$120.00</p>
+</div>
+</div>
+<!-- Product Card 5 -->
+<div class="group cursor-pointer">
+<div class="aspect-[4/5] rounded-2xl overflow-hidden bg-surface-container mb-4">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A loaf of freshly baked artisan sourdough bread on a linen cloth with crumbs scattered around" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgjl7aec_erUXue0rOkGmhskCle38YQU4F4waOb1Ivpn-lrNaVMENQ-ioFXvA2pSad9b3sEKsBuUZcDZHxOsHoUBzQje811O9CXTPLfl1hMsUNKn1w-s5rvpfIoUx0-VRl8DStbWX6WPwUstmgwxXjqkpFVwnfiCWyBCnjc5aYgUPaq7783N7yA7sVH89_KuFdM64e7ISeNuRIWu0vL54-MG7sNg_MV_mY4UKJdK4ryQ_FPeiwsq2LxqYeo6V8d3Lig1Q03o3ErzY"/>
+</div>
+<div class="px-2">
+<p class="text-xs text-secondary font-medium mb-1">Crust &amp; Crumb</p>
+<h3 class="text-lg font-bold text-on-surface mb-2 tracking-tight">Daily Artisan Sourdough</h3>
+<p class="text-primary-container font-black text-xl">$8.50</p>
+</div>
+</div>
+<!-- Product Card 6 -->
+<div class="group cursor-pointer">
+<div class="aspect-[4/5] rounded-2xl overflow-hidden bg-surface-container mb-4">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Sleek modern wireless wooden headphones resting on a minimalist desk next to a small plant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA50y6qQ-Ac7hqG6PvR3YlVt7BWFEPHarj3VxSL4Yoed9FPQd8c_49rFU1XAJZesSHzNv_Fks6E3Iur4Ahy2IuJnqgbKcOEdxUfDuVtd_xv5esG8maGqqAX7AcZdJcXusKeBpwlMcZLmLraddQsckAhthT_PpKKUhAUdNaWmL9VxhJm5Lyfzuewf8j2kjWigUMjkQUSYwT2-t2DmY3NV7wKmFYDmifMQRW4mprkg7w-CbSZzubhYgq8IqhCO0lUbuzTIbCfGufKcRs"/>
+</div>
+<div class="px-2">
+<p class="text-xs text-secondary font-medium mb-1">Timber Tech</p>
+<h3 class="text-lg font-bold text-on-surface mb-2 tracking-tight">Walnut Wireless Over-Ears</h3>
+<p class="text-primary-container font-black text-xl">$210.00</p>
+</div>
+</div>
+<!-- Product Card 7 -->
+<div class="group cursor-pointer">
+<div class="aspect-[4/5] rounded-2xl overflow-hidden bg-surface-container mb-4">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Hand-poured lavender scented candle in a frosted glass jar with a wooden lid on a stack of books" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3CPbtlv_5qMdoBnuolVrtoi7PUFXlDqDPFyJxhzk37vj26zbo915hmHwd7vjpkjtiDKTg1isLh4MMNQPPdLvL0TQQFZI_6vixparfxyxGkB9Ts6xYT2bppk9zRJBSKZF0R0FqvxjOziDhMATpw4fYsOhzYhQ0qChv7O7SWRsHQyH25e0hOFLBdGL0zdDg_n7-Q5_RZbJ0-IxDO8_88wG9fcLAM_We66pCzvuDI87kABcjNtTaoeqms2jh_aGciygsnYGT8n54BBI"/>
+</div>
+<div class="px-2">
+<p class="text-xs text-secondary font-medium mb-1">Wick &amp; Wax</p>
+<h3 class="text-lg font-bold text-on-surface mb-2 tracking-tight">Evening Lavender Soy Candle</h3>
+<p class="text-primary-container font-black text-xl">$18.00</p>
+</div>
+</div>
+<!-- Product Card 8 -->
+<div class="group cursor-pointer">
+<div class="aspect-[4/5] rounded-2xl overflow-hidden bg-surface-container mb-4">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Handcrafted minimalist wooden chair with curved backrest in a brightly lit modern living room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARCtL8nW8mSuFtQsLeYNKVNGiF-9gvKVhYjU0iqQye7VlcBbcJZGMa5fUvgzScTriMtGUmhcGdTXpBL9cY5aol-aJGyBDMG4T7bDke_V8W60t_6SMXVTQyFK2bzDRVaCf81nrLS0i7txQXhPrfRp-8lDQ_ZhZBxVUwMXIrWOSFw7TVej5jcEdSDHZwIL9z5PkDg4tW6HUVhUS8p273_D70bX0nt_SPMJlknNcg5zawnT6c5xMPZI01TuYpKrtdyKbVR9BEGfEA8eM"/>
+</div>
+<div class="px-2">
+<p class="text-xs text-secondary font-medium mb-1">Grain &amp; Joinery</p>
+<h3 class="text-lg font-bold text-on-surface mb-2 tracking-tight">Oak Dining Chair - Series 01</h3>
+<p class="text-primary-container font-black text-xl">$340.00</p>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Consistency) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-white/80 dark:bg-stone-950/80 backdrop-blur-md flex justify-around items-center px-4 pb-6 pt-3 rounded-t-3xl z-50 border-t border-stone-100/10 shadow-[0_-10px_40px_rgba(0,0,0,0.05)]">
+<div class="flex flex-col items-center justify-center bg-orange-100/50 dark:bg-orange-900/20 text-orange-700 dark:text-orange-400 rounded-2xl px-5 py-2 animate-in fade-in slide-in-from-bottom-4 transition-all">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[11px] font-bold uppercase tracking-widest mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2 active:bg-stone-100 transition-all">
+<span class="material-symbols-outlined">search</span>
+<span class="text-[11px] font-bold uppercase tracking-widest mt-1">Explore</span>
+</div>
+<div class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2 active:bg-stone-100 transition-all">
+<span class="material-symbols-outlined">storefront</span>
+<span class="text-[11px] font-bold uppercase tracking-widest mt-1">My Shop</span>
+</div>
+<div class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2 active:bg-stone-100 transition-all">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[11px] font-bold uppercase tracking-widest mt-1">Profile</span>
+</div>
+</nav>
