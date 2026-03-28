@@ -1,0 +1,193 @@
+
+<!-- Top Navigation Bar (Shared Component) -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-stone-950/80 backdrop-blur-md shadow-[0_20px_50px_rgba(157,67,0,0.08)]">
+<div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto font-['Plus_Jakarta_Sans'] antialiased tracking-tight">
+<div routerLink="/" class="text-2xl font-black text-orange-500 tracking-tighter cursor-pointer">Fair.ci</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-stone-600 dark:text-stone-400 hover:text-orange-500 transition-colors duration-200" href="#">Marketplace</a>
+<a class="text-orange-600 dark:text-orange-500 font-bold hover:text-orange-500 transition-colors duration-200" href="#">Selers</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-stone-600 hover:text-orange-500 active:scale-95 transition-transform" data-icon="shopping_basket">shopping_basket</button>
+<button class="material-symbols-outlined text-stone-600 hover:text-orange-500 active:scale-95 transition-transform" data-icon="account_circle">account_circle</button>
+</div>
+</div>
+</nav>
+<main class="pt-24 pb-32 max-w-7xl mx-auto px-6">
+<!-- Shop Header Profile Section -->
+<header class="relative mb-16">
+<!-- Shop Banner -->
+<div class="h-64 md:h-80 w-full rounded-2xl overflow-hidden mb-[-4rem] shadow-sm">
+<img alt="Artisan Workshop" class="w-full h-full object-cover" data-alt="warm sunlit artisan wood workshop with sawdust in the air and hand tools hanging on a rustic wooden wall" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcJTJ1Sxlq-N9he08r09cLeMXBrWQbMNoZ2VPA_nFQ0WOABEDQEEZY0OuPnO8IwPubvslNYbyEpVJJvFxq6TRd-6VByvc-08a5F-Op584dR1WXc5oUerI6IVSqGNUGSpK_3M2NwJ1cSVICyD9-kmb71N5R3M42Bv1aOZfbX7aoVqMwGJb5eX1U_3ZyApvLc3jEgCctim0UDRIgQB6mYhQxSaIwg-kkYnGTISh9TJX1eqwm-aH-kA-GyFuTKtcDtiJxhxWKFzI3SwA"/>
+</div>
+<!-- Profile Info Card -->
+<div class="relative px-4 md:px-12">
+<div class="bg-surface-container-lowest rounded-2xl p-8 shadow-[0_20px_50px_rgba(157,67,0,0.08)] flex flex-col md:flex-row items-center md:items-end gap-8">
+<!-- Shop Logo -->
+<div class="w-32 h-32 md:w-40 md:h-40 rounded-2xl bg-surface-container overflow-hidden border-4 border-surface-container-lowest -mt-16 md:-mt-24 shadow-lg">
+<img alt="The Ceramic Studio Logo" class="w-full h-full object-cover" data-alt="minimalist ceramic logo with abstract clay pot shape in earthy terracotta tones on a clean white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuNv5wv9gWSHRxd9Hv4Jswkxtq3DNdmWjqH6pKHfPsvJANbdBKcls-INEQOy62FW-9jK8SDjgvEdbb1oa7uuZtHqEsqGl6_ErHEcTAGtVdd4_AAHrOzTdRLwVDsUXXl1zV9YmMMcA7N_tz7S5NFAlgfduiygLT_-pmzOKKKyqvnjuHIjKaSRd7ddau3UiIaGHRRux8TorjI2sIo_Vwn_8Tasnk8UwvZEBKdVVrVNgu6jTBC6FzkxSl9DPLHuXDb8iQ7GydUPZox6Q"/>
+</div>
+<!-- Shop Details -->
+<div class="flex-1 text-center md:text-left">
+<div class="flex flex-col md:flex-row md:items-center gap-2 mb-2">
+<h1 class="text-3xl md:text-4xl font-extrabold tracking-tight text-on-surface">The Terra Studio</h1>
+<span class="inline-flex items-center px-3 py-1 rounded-full bg-orange-100 text-orange-700 text-xs font-bold uppercase tracking-wider w-fit mx-auto md:mx-0">Verified Artisan</span>
+</div>
+<p class="text-on-surface-variant max-w-2xl leading-relaxed mb-6 font-medium">
+                            Handcrafted ceramic vessels and tableware inspired by the Côte d'Ivoire coastline. Each piece is unique, fired in our local Abidjan workshop using sustainable earth-mined clays.
+                        </p>
+<div class="flex flex-wrap justify-center md:justify-start gap-4 text-sm font-semibold text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-orange-600 text-lg">location_on</span> Abidjan, CI</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-orange-600 text-lg">star</span> 4.9 (128 reviews)</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-orange-600 text-lg">package_2</span> 12 Active Products</span>
+</div>
+</div>
+<!-- Contact Action -->
+<div class="w-full md:w-auto">
+<button class="w-full flex items-center justify-center gap-3 bg-green-500 text-white px-8 py-4 rounded-xl font-bold hover:brightness-110 active:scale-95 transition-all shadow-lg shadow-green-600/20">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat</span>
+                            Message on WhatsApp
+                        </button>
+</div>
+</div>
+</div>
+</header>
+<!-- Product Filter & Search Bar Area -->
+<div class="flex flex-col md:flex-row justify-between items-center mb-10 gap-6">
+<h2 class="text-2xl font-bold tracking-tight border-l-4 border-primary pl-4">Shop Collections</h2>
+<div class="flex gap-4 w-full md:w-auto">
+<div class="relative flex-1 md:w-64">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-12 pr-4 py-3 bg-surface-container-low border-none rounded-xl focus:ring-2 focus:ring-primary text-on-surface placeholder:text-on-surface-variant/50" placeholder="Search in this shop..." type="text"/>
+</div>
+<button class="bg-surface-container-high p-3 rounded-xl hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">tune</span>
+</button>
+</div>
+</div>
+<!-- Product Grid (Asymmetric Bento Style) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+<!-- Product Card 1 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[4/5] rounded-2xl overflow-hidden bg-surface-container mb-4">
+<img alt="Speckled Vase" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="tall hand-thrown ceramic vase with speckled cream glaze and organic wavy texture on a minimalist shelf" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdOnWxQS9U_qjifVlTXjuJ-rYwJxdgGXWUgxmcvLePwwk1MqRcH6VQPX7uSP790_b6A6LPsLFJmnx932yklv3ZsFpkTMssls2XW_P7Zjy6SOkATCb2rG64r--hhFgSW453djtypKcr3R0JWZtAJ5_G7LwnzQmkAAVcWQ5PPw6hjE1eUR4PT1Ju7duwLn4h7c4I2qfLqo_nL0qcp5RnrKt1SF4pDhYNtuA_-vFyFYuBSw1imeP0n3K40YLix1V0LUcGfvMzJGdRJH0"/>
+<button class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<div class="px-2">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-bold text-lg leading-tight group-hover:text-primary transition-colors">Hand-Thrown Speckled Vase</h3>
+<span class="font-poppins font-bold price-orange text-lg">15,000 FCFA</span>
+</div>
+<p class="text-sm text-on-surface-variant">Home Decor • Limited Edition</p>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[4/5] rounded-2xl overflow-hidden bg-surface-container mb-4">
+<img alt="Coffee Mug Set" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="pair of artisanal coffee mugs with deep indigo drip glaze and matte charcoal base sitting on a rustic wooden board" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0P44tjzzw5YWlFbM-t125-zzdnfbu6CNGO5_gqpbPKPVwgPnWv8O5s-6vGKc8Tt1vvA3pXy_KtqCXz3YPTrZGxwr6eRj3FXb-n_gqeoCE2l9Y9mJIi--nKZrkv-K0MRWqNN1lemS_VJL0W_3VZg4txAMAzh7eQJcK-WsqcvbufcK50MgLaLHPDFfgnIM_opMgYS2nrKj--zWKI_v2rvaXHdGT4XRgEghO2ZVrUVjGjgnGibKJyCq-4LmImVgYmcXQHyxQMOeWiQU"/>
+<button class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<div class="px-2">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-bold text-lg leading-tight group-hover:text-primary transition-colors">Indigo Drip Coffee Set</h3>
+<span class="font-poppins font-bold price-orange text-lg">8,500 FCFA</span>
+</div>
+<p class="text-sm text-on-surface-variant">Tableware • Set of 2</p>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[4/5] rounded-2xl overflow-hidden bg-surface-container mb-4">
+<img alt="Incense Burner" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="minimalist white ceramic incense burner with small gold leaf details on a marble tray with incense smoke curling up" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYcIHnh9BSa6ckUzR0DsJKw_PsuUZhjpvJxDEp14P-BXdPIXU2uUzCQFFw7SjM4RPWG4AcdKpSC1aU9h5QoLn9426g1puugh9TBF92PrJ4R7Q4ZHYJpXrDA2oVOBnQrXD9y6DMD3cHnKyBrNhnLfp_SCkffpXOZnbOeQve4fvXB7VOe1jb_zZsBIARAc9YMPsSay_sChdzwZ0OerJ5MKPY40qHTE6RPd2EJO21aRupm70GNRQ1NV54wyvj7GTNlWufD4l85Ld7bT4"/>
+<button class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<div class="px-2">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-bold text-lg leading-tight group-hover:text-primary transition-colors">Gilded Incense Holder</h3>
+<span class="font-poppins font-bold price-orange text-lg">5,500 FCFA</span>
+</div>
+<p class="text-sm text-on-surface-variant">Wellness • Gold Accents</p>
+</div>
+</div>
+<!-- Product Card 5 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[4/5] rounded-2xl overflow-hidden bg-surface-container mb-4">
+<img alt="Dining Plate" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="stack of organically shaped dinner plates in muted sage green with subtle unglazed edges" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCn5Em9Zu_8CH-3jejKU8120v4h0OPOX7g2STyINYXLY4gnd-9NzsT0UIcRzMrLW2z7gEAdhOA6H4xK6RTjS4i9eqlgyQCTeeetJmsRdcAdnSifS-sTfSgZmpay7ydOm6EsWK2keTrKRQUoDo87T6RdAeIuLQZWGkdmpxLaNZQeiKtGvdJdI-H8DUf8I2DTM8BamY-Qw9MxC0s9RJA7TT_HI-ZD5cXBSBKwwPOTSOn7Sjw9jnb6t9Yv3SBcIwD6fOQqH0z46cbrqqk"/>
+<button class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<div class="px-2">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-bold text-lg leading-tight group-hover:text-primary transition-colors">Sage Earth Dinner Plate</h3>
+<span class="font-poppins font-bold price-orange text-lg">12,000 FCFA</span>
+</div>
+<p class="text-sm text-on-surface-variant">Tableware • Per Item</p>
+</div>
+</div>
+<!-- Product Card 6 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[4/5] rounded-2xl overflow-hidden bg-surface-container mb-4">
+<img alt="Wall Planter" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="half-moon shaped ceramic wall planter with a small green trailing plant hanging from a terracotta wall" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDKHzBfHVa9REB5WaHpBnCg2n5q7gputvtY-BUX1A-LzGRkdluUriRXuwLN8EX4ZQ5ybxcuP6vJVWLKJJdGhzTGeKDuKk42ZBrv8buF2z8-P9s-kl1rxUSrYuOYtssF6IuyQrl8U0dgij0R5kqtud6ElZmOUixLBSsq4fX2NVA_Vl2f3xcws4PYgmiSPY82WbKmaCCzMdD-49_BIeWamOXsoWSRf1FFkTo4yq1EeLGxA3wKihN6RMEN1hDEnh3QnBel3IUUFP-alc"/>
+<button class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<div class="px-2">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-bold text-lg leading-tight group-hover:text-primary transition-colors">Terracotta Half-Moon Planter</h3>
+<span class="font-poppins font-bold price-orange text-lg">9,000 FCFA</span>
+</div>
+<p class="text-sm text-on-surface-variant">Garden • Indoor/Outdoor</p>
+</div>
+</div>
+<!-- Product Card 7 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[4/5] rounded-2xl overflow-hidden bg-surface-container mb-4">
+<img alt="Tea Bowl" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="traditional matcha tea bowl with rough wabi-sabi finish and cracked glaze pattern" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAl-ebT5Dcwb3mC-4p7NYM46Id0xNEHyy_8cIpSDQZxnjOgc1fNEm878s7hw1oadgVYzN805els7dB91jsxYpq2tsV9ctj_g6LBjHf8j28zXSMAJSxDOtdv9Y3npCCB7aVR3Q-hS33ubslNLLZ1bk3naySDF4vpUn4KnGo5RsBjaFk2_W5t-MzSs9xZ0g3AHLavFQQfY2s3OhH-zigEcshwSsRHEXv-MesBIp4QwXJSUHYPzvjkbNbgR7YGHTjqYHszGaZJ3XDx8SY"/>
+<button class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<div class="px-2">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-bold text-lg leading-tight group-hover:text-primary transition-colors">Cracked Glaze Tea Bowl</h3>
+<span class="font-poppins font-bold price-orange text-lg">6,500 FCFA</span>
+</div>
+<p class="text-sm text-on-surface-variant">Ceremony • Hand Painted</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar (Mobile only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-white/80 dark:bg-stone-950/80 backdrop-blur-md rounded-t-3xl z-50 shadow-[0_-10px_40px_rgba(0,0,0,0.05)] border-t border-stone-100/10">
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2 tap-highlight-transparent animate-in fade-in slide-in-from-bottom-4" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-[11px] font-bold uppercase tracking-widest mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2 tap-highlight-transparent animate-in fade-in slide-in-from-bottom-4" href="#">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="text-[11px] font-bold uppercase tracking-widest mt-1">Explore</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-orange-100/50 dark:bg-orange-900/20 text-orange-700 dark:text-orange-400 rounded-2xl px-5 py-2 tap-highlight-transparent animate-in fade-in slide-in-from-bottom-4" href="#">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span class="text-[11px] font-bold uppercase tracking-widest mt-1">My Shop</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2 tap-highlight-transparent animate-in fade-in slide-in-from-bottom-4" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-[11px] font-bold uppercase tracking-widest mt-1">Profile</span>
+</a>
+</nav>
+<!-- Merchant WhatsApp Floating Bar (Contextual) -->
+<div class="fixed bottom-24 md:bottom-12 right-6 z-40 hidden md:block">
+<button class="bg-green-500 text-white p-4 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all group flex items-center gap-3">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">chat</span>
+<span class="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-300 font-bold whitespace-nowrap">Chat with Studio</span>
+</button>
+</div>

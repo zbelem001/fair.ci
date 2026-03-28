@@ -1,0 +1,193 @@
+
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-stone-900/80 backdrop-blur-md shadow-[0_20px_50px_rgba(157,67,0,0.08)]">
+<div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+<div class="text-2xl font-bold text-stone-900 dark:text-stone-50 tracking-tighter font-headline">Fair.ci</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-stone-600 dark:text-stone-400 hover:text-stone-900 font-plus-jakarta tracking-tight antialiased transition-all duration-300" href="#">Explore</a>
+<a class="text-orange-700 dark:text-orange-400 font-bold border-b-2 border-orange-700 font-plus-jakarta tracking-tight antialiased" href="#">Artisans</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-stone-900 font-plus-jakarta tracking-tight antialiased transition-all duration-300" href="#">Markets</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-stone-900 font-plus-jakarta tracking-tight antialiased transition-all duration-300" href="#">Collections</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-stone-100/50 dark:hover:bg-stone-800/50 transition-transform scale-95 active:scale-90">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+</button>
+<button class="p-2 rounded-full hover:bg-stone-100/50 dark:hover:bg-stone-800/50 transition-transform scale-95 active:scale-90">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</button>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32">
+<!-- Hero Section -->
+<section class="px-6 max-w-7xl mx-auto mb-16">
+<div class="relative overflow-hidden rounded-[2.5rem] bg-surface-container-low p-12 md:p-20 flex flex-col items-center text-center">
+<div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAWaITS8YViD_npwtjN3lEhIZTLHwzH-Ha_pyK5A9enyk2oRN8rfbglAxJccE3U0AFNhm57uaO-bCOTJr-DR5in52nfdc90qPbVB7MuFwPda6XOvA5hq7hZgOOXZC2VuZq3ATCZFWnEGgnlJZw9rAMTfybwsXkbYUufUzloZc2v28Zv0a-aYXPhZHVfgtap42OMkj-pxGws-n9hXtIh7Th_eTTCeHUVeqqbB36Ma3nEj4mYL3P_1EdQQ8KwthkJxeQ0kcT3inZWfR4');"></div>
+<h1 class="text-5xl md:text-7xl font-extrabold font-headline text-on-surface tracking-tighter mb-6">Nos Artisans Locaux</h1>
+<p class="text-lg md:text-xl text-on-surface-variant max-w-2xl mb-10 leading-relaxed">Découvrez le savoir-faire authentique de la Côte d'Ivoire. Des créations uniques nées de mains passionnées.</p>
+<!-- Search Bar -->
+<div class="w-full max-w-2xl relative group">
+<input class="w-full pl-14 pr-6 py-5 rounded-2xl bg-surface-container-lowest border-none shadow-xl focus:ring-2 focus:ring-primary-container transition-all text-on-surface text-lg" placeholder="Rechercher un artisan, un atelier..." type="text"/>
+<span class="material-symbols-outlined absolute left-5 top-1/2 -translate-y-1/2 text-primary-container text-2xl" data-icon="search">search</span>
+</div>
+</div>
+</section>
+<!-- Filters Section -->
+<section class="px-6 max-w-7xl mx-auto mb-16">
+<div class="flex flex-wrap items-center justify-center gap-3">
+<button class="px-6 py-2.5 rounded-full bg-primary-container text-white font-semibold text-sm shadow-lg shadow-primary-container/20">Tout voir</button>
+<button class="px-6 py-2.5 rounded-full bg-surface-container-high text-on-surface font-medium text-sm hover:bg-surface-variant transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-lg" data-icon="local_pottery">local_florist</span> Poterie
+                </button>
+<button class="px-6 py-2.5 rounded-full bg-surface-container-high text-on-surface font-medium text-sm hover:bg-surface-variant transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-lg" data-icon="apparel">apparel</span> Mode
+                </button>
+<button class="px-6 py-2.5 rounded-full bg-surface-container-high text-on-surface font-medium text-sm hover:bg-surface-variant transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-lg" data-icon="restaurant">restaurant</span> Alimentation
+                </button>
+<button class="px-6 py-2.5 rounded-full bg-surface-container-high text-on-surface font-medium text-sm hover:bg-surface-variant transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-lg" data-icon="chair">chair</span> Mobilier
+                </button>
+<button class="px-6 py-2.5 rounded-full bg-surface-container-high text-on-surface font-medium text-sm hover:bg-surface-variant transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-lg" data-icon="brush">brush</span> Art
+                </button>
+</div>
+</section>
+<!-- Featured Section: Bento Grid -->
+<section class="px-6 max-w-7xl mx-auto mb-20">
+<div class="flex items-end justify-between mb-8">
+<div>
+<h2 class="text-3xl font-bold font-headline tracking-tight text-on-surface">Artisans à la une</h2>
+<p class="text-on-surface-variant mt-1">Les talents qui façonnent notre culture cette semaine.</p>
+</div>
+<a class="text-primary font-bold flex items-center gap-1 hover:underline" href="#">Voir plus <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span></a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Large Feature Card -->
+<div class="md:col-span-2 relative group overflow-hidden rounded-[2rem] h-[400px]">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="close-up of skilled hands shaping a clay vase on a pottery wheel in a sunlit rustic studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaTa8XabCiNm_dR0J7Zz1GGZyw7tN7QBSwD3s1NUWlPFkHk-hIQfsWP86IfzvRVL6bPV2vDmOcY3zWEmGhQhUlveM17p84_OI8AjM4YF630QKVjX6GPld1y0DqPEZL_krtF_NiiQFonEZvt-5Z3GHs0C6-Wg8nTkIAmKCM4sZJrSPQ2SwI8lTJTh_S6B704loYtmNIcOJL92uR4b89FNYT2EcUym3U1it8FJPV5phZyrOTsa1CtenKsuMA0A2Cu2kCKlSkGQis93Y"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-10 w-full">
+<div class="flex items-center gap-4 mb-4">
+<img class="w-16 h-16 rounded-2xl border-2 border-white object-cover" data-alt="professional portrait of a smiling ivorian artisan in his workshop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUfabtd2-3LAFiaXwDmc8e7KWNRfl4GteQDpRuxGu0FUrOTuMxjOzL5mHxAUNBvbI5rIesgNMmST2vokT7U7mBwpkAKyMe0UjtS3jcuDiSsrhhy8B65wMKg2qYDN2i4aPAn0r4mETY82GrUXKxLKDEnmKIyunxB8eWsRzd7FGaKSGCm-uOP88CZIMeaTomjZztiqx7HDiZ7uUifWrilK3cBWTlIpSeSNSQcpA6ej-UKNy30yCmVj8BNPY15w5CRdtWVxLNOmJ7kI8"/>
+<div>
+<h3 class="text-2xl font-bold text-white font-headline">Koffi Ceramics</h3>
+<p class="text-stone-300">Grand-Bassam, Côte d'Ivoire</p>
+</div>
+</div>
+<p class="text-white/90 max-w-md mb-6 leading-relaxed">Spécialiste de la poterie traditionnelle revisitée avec une touche minimaliste moderne.</p>
+<button class="bg-primary-container text-white px-8 py-3 rounded-xl font-bold transition-transform active:scale-95 hover:shadow-xl hover:shadow-primary-container/30">Voir la boutique</button>
+</div>
+</div>
+<!-- Secondary Feature Card -->
+<div class="relative group overflow-hidden rounded-[2rem] h-[400px] flex flex-col justify-end p-8 bg-surface-container-high">
+<div class="absolute top-0 left-0 w-full h-1/2 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="vibrant african textile patterns with intricate weaving details and bold colors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8l8CfpB3xmC8j3lPxje1TPwgy_y4o-0BxQzOBG0GMDrzJ26BCV58rmLqaEjNsbpsQt9tKPkSEj2PJqbGrq8WjgVg4qqU_ENH1Rws60mhqriFICUfQa07tF-cgVsoGmSIHoL6C9uHW0pTK83y-NLHZyNNylhgQOAKOG0xWPXJI6G5EhIbyV2kB-5QS3ObMpRyjIzZHwkP6B1EsX65I8ASkCAog7TLsDWR21pmZpAoc-zPcJbMOqAAlBnUmvnBKVDoK-IKysat3F3g"/>
+</div>
+<div class="relative mt-auto">
+<div class="w-14 h-14 rounded-full bg-white flex items-center justify-center mb-4 shadow-md">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<h3 class="text-xl font-bold text-on-surface font-headline mb-2">Awa Textiles</h3>
+<p class="text-on-surface-variant text-sm mb-6">Tissage traditionnel et mode éthique contemporaine.</p>
+<button class="w-full py-3 rounded-xl bg-white text-on-surface font-bold border border-outline-variant/30 hover:bg-stone-50 transition-colors">Explorer</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Directory Listing -->
+<section class="px-6 max-w-7xl mx-auto">
+<h2 class="text-3xl font-bold font-headline tracking-tight text-on-surface mb-8">Tous nos Artisans</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Artisan Card 1 -->
+<div class="group bg-surface-container-lowest rounded-[2rem] overflow-hidden flex flex-col shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_50px_rgba(157,67,0,0.08)] transition-all duration-500">
+<div class="h-48 overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="rustic wooden table set with organic local food products and handmade kitchenware" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAT8KzOAFzToI0X8k3Ukr-4rGd0KAOObClvM3NTdUBNOJ9fPQQUUEafmOLl9XaKoLp18XjDHKyjRYIQeN9dcVkgQ9-6Dfvtxin0H6b_DZ_vUaqwrK11SGggO8tg5wJiSqUotEeH4iqPVGjLVUPDa2REyhfsSDVQ5ietMCX-kDZp7z3Gh5--HJ5-LjO_9CeUolrpru5I0GVFO_6padUYcL-XGy8HLsA4FVdy0aViIe5yqyv26BU2L5bqG-9bFquI0BpU_UtvLgTGfE"/>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-orange-500 text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold text-on-surface">4.9</span>
+</div>
+</div>
+<div class="p-8 pt-0 -mt-8 relative z-10 flex flex-col flex-grow">
+<img class="w-20 h-20 rounded-2xl object-cover border-4 border-white shadow-lg mb-4" data-alt="portrait of an artisan with a warm expression and natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWuFM_lokETSI1nZZwprKOlL6KOA12XDv6eN8UU4BnJ3R6DT2pitsPc6s8ubMcyKS8Aa4Z3Ztb-DWO7TuKHrdR9objPt0gP77eS83M-J7cn5ryHnH_tPnhvhj7LbYHkSjU3j6EijRlMPZkDljSX8xZmqnl8d15dPOTK-PPUgdAiB8H7y2aUxN8zNRnI7QDi8Hghmz_GqpzDmWiDWNGUWEka8RlpdF_E-X8n9v9YPsUehPi50KSDCgnp-OlA6bcQV0zaPtkR0pj91g"/>
+<h3 class="text-xl font-bold font-headline text-on-surface mb-1">Maison d'Ivoire</h3>
+<div class="flex items-center gap-2 text-stone-500 text-sm mb-4">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+<span>Abidjan, Cocody</span>
+</div>
+<p class="text-on-surface-variant text-sm line-clamp-2 mb-6">Confitures artisanales et épices rares sélectionnées dans les plantations du nord.</p>
+<div class="mt-auto pt-6 flex items-center justify-between border-t border-outline-variant/20">
+<span class="text-xs font-medium text-secondary bg-surface-container-high px-3 py-1 rounded-full">24 Produits</span>
+<button class="text-primary font-bold text-sm hover:underline">Voir la boutique</button>
+</div>
+</div>
+</div>
+<!-- Artisan Card 2 -->
+<div class="group bg-surface-container-lowest rounded-[2rem] overflow-hidden flex flex-col shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_50px_rgba(157,67,0,0.08)] transition-all duration-500">
+<div class="h-48 overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="handcrafted leather bags and accessories arranged elegantly on a wooden pedestal" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_ZQpFkFM-W7w-9qzgOraWmotXWimoO4L8C4xNmSM4Jll5x-XGg88RP1CjmGFCbREIS0qPxVajoXxy1j14haxhen2dmKUK5arP0Da6vWmPufPN9FSrnGkCaGzdrkjKfr5tqHm3Cvl_pNg4Mf_S_X89y_vK4T7878BLRqZr_AaP5386ax4-JLa_kebjIx_CfERn2puDiJIXt527GmbJn-1mLBHnKrwS1cPX_iUn3tlyK1wRK9IuLd3NAt1PV7wjhcQ-DtgY85GLbdI"/>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-orange-500 text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold text-on-surface">4.8</span>
+</div>
+</div>
+<div class="p-8 pt-0 -mt-8 relative z-10 flex flex-col flex-grow">
+<img class="w-20 h-20 rounded-2xl object-cover border-4 border-white shadow-lg mb-4" data-alt="portrait of a woman artisan designer in her creative studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvKyifnJ5vpdHY4YZ9atjWp8GmM4FaPDnQ7bzuQ9XbRFbhpX6zoM5MdElSD1NLW-lr3FieOrNp5Ry0iBB46tR5vSt8UrVXkGJAuV8PWVXOhWDYdz62MmVFwNtliTq6VhiyKqdm3Xvc5d7R9jhkHvrhcUUxgukLqCLcaj6-t8sWUWy3er_m7mYDwVvLtbFLaLQhaENCxmpk_5lh7tfN_c_sgHAC_Z7ddBXRKnWwvPW5iTcuZIHR4cjkH1PoOGHxdRC1Mm6TeF_c8JM"/>
+<h3 class="text-xl font-bold font-headline text-on-surface mb-1">Cuir de Bassam</h3>
+<div class="flex items-center gap-2 text-stone-500 text-sm mb-4">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+<span>Grand-Bassam</span>
+</div>
+<p class="text-on-surface-variant text-sm line-clamp-2 mb-6">Maroquinerie d'exception travaillée selon des techniques ancestrales de tannage.</p>
+<div class="mt-auto pt-6 flex items-center justify-between border-t border-outline-variant/20">
+<span class="text-xs font-medium text-secondary bg-surface-container-high px-3 py-1 rounded-full">12 Produits</span>
+<button class="text-primary font-bold text-sm hover:underline">Voir la boutique</button>
+</div>
+</div>
+</div>
+<!-- Artisan Card 3 -->
+<div class="group bg-surface-container-lowest rounded-[2rem] overflow-hidden flex flex-col shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_50px_rgba(157,67,0,0.08)] transition-all duration-500">
+<div class="h-48 overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="collection of hand-poured aromatic candles with botanical elements" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwgfaA6GDr5i8BDm3H7IFP74hzXbUV7BleY0b6f1kFgCVnMdpRfBTvLmUiL7stW_81w9E8t65av8pVFeKPwD65C6hhwv9SdNkjQi09eC6MBd4bmuKv0OZvYb_BGvC3d8HbQ49wVZRkKOektpbEqcfJ7goAgKEtNJSbbrnlN3Ue7vNw1hgIvms8IQxB0ylzqKfBHJmxNMhG3tmFO8XKzRa-zYa0B_gjVEtdfOg7C-UWXsikHBaLy-ddFSsYBF7li28ZWGV_8QnCX4w"/>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-orange-500 text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold text-on-surface">5.0</span>
+</div>
+</div>
+<div class="p-8 pt-0 -mt-8 relative z-10 flex flex-col flex-grow">
+<img class="w-20 h-20 rounded-2xl object-cover border-4 border-white shadow-lg mb-4" data-alt="smiling artisan male in a modern work environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAw55132WyVHxJMqAvGfsu7g5CgYcl6G3xqeHaSyjL6lCm_-2o0qBhgXvyW59KMsos4eUKc9RjkW4-Vr9s_y3F6cTk5mr-hjpaHL07ABB8cdl0sFpg_Md-KW5RUFrPByuKvFe0iIOH0y-YZLNyaFLAHRy8LtrdPBaUyBavSHt9r5IajbKgNzfdDjkqrcK_R2Z3xdlESsrUn2Nn-R7jbp9O19M1k7yuvothoJrEtoEtGsbZwAqlY9CRpxlAorYDY2MmragaAMKFc9mY"/>
+<h3 class="text-xl font-bold font-headline text-on-surface mb-1">Atelier Lumière</h3>
+<div class="flex items-center gap-2 text-stone-500 text-sm mb-4">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+<span>Yamoussoukro</span>
+</div>
+<p class="text-on-surface-variant text-sm line-clamp-2 mb-6">Bougies parfumées aux essences naturelles de fleurs tropicales et de bois précieux.</p>
+<div class="mt-auto pt-6 flex items-center justify-between border-t border-outline-variant/20">
+<span class="text-xs font-medium text-secondary bg-surface-container-high px-3 py-1 rounded-full">38 Produits</span>
+<button class="text-primary font-bold text-sm hover:underline">Voir la boutique</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-white/80 dark:bg-stone-900/80 backdrop-blur-md rounded-t-3xl shadow-[0_-10px_40px_rgba(157,67,0,0.05)] z-50">
+<a class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400 px-4 py-1 tap-highlight-transparent active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-[10px] font-medium font-plus-jakarta mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400 px-4 py-1 tap-highlight-transparent active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="text-[10px] font-medium font-plus-jakarta mt-1">Search</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-200 rounded-2xl px-4 py-1 tap-highlight-transparent active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+<span class="text-[10px] font-medium font-plus-jakarta mt-1">Favorites</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400 px-4 py-1 tap-highlight-transparent active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-[10px] font-medium font-plus-jakarta mt-1">Account</span>
+</a>
+</nav>
