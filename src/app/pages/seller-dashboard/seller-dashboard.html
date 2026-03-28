@@ -2,12 +2,8 @@
 <!-- TopAppBar -->
 <header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-stone-900/80 backdrop-blur-md shadow-[0_20px_50px_rgba(157,67,0,0.08)]">
 <div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
-<div class="text-2xl font-bold text-stone-900 dark:text-stone-50 tracking-tighter font-headline">Fair.ci</div>
+<div routerLink="/" class="text-2xl font-bold text-orange-500 tracking-tighter font-headline cursor-pointer">Fair.ci</div>
 <nav class="hidden md:flex items-center gap-8">
-<a class="text-stone-600 dark:text-stone-400 hover:text-stone-900 font-plus-jakarta tracking-tight antialiased transition-all duration-300" href="#">Explore</a>
-<a class="text-orange-700 dark:text-orange-400 font-bold border-b-2 border-orange-700 font-plus-jakarta tracking-tight antialiased" href="#">Artisans</a>
-<a class="text-stone-600 dark:text-stone-400 hover:text-stone-900 font-plus-jakarta tracking-tight antialiased transition-all duration-300" href="#">Markets</a>
-<a class="text-stone-600 dark:text-stone-400 hover:text-stone-900 font-plus-jakarta tracking-tight antialiased transition-all duration-300" href="#">Collections</a>
 </nav>
 <div class="flex items-center gap-4">
 <button class="p-2 rounded-full hover:bg-stone-100/50 dark:hover:bg-stone-800/50 transition-transform scale-95 active:scale-90">
@@ -20,6 +16,13 @@
 </div>
 </header>
 <main class="pt-24 pb-32">
+<!-- Breadcrumb & Back Link -->
+<nav class="max-w-7xl mx-auto px-6 mb-8 mt-4">
+<a class="flex items-center gap-2 text-primary font-semibold hover:underline group w-fit" routerLink="/">
+<span class="material-symbols-outlined text-sm transition-transform group-hover:-translate-x-1">arrow_back</span>
+    Back to Marketplace
+</a>
+</nav>
 <!-- Hero Section -->
 <section class="px-6 max-w-7xl mx-auto mb-16">
 <div class="relative overflow-hidden rounded-[2.5rem] bg-surface-container-low p-12 md:p-20 flex flex-col items-center text-center">
