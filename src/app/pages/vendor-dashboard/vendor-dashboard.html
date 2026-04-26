@@ -1,0 +1,154 @@
+<!-- Stats Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+<div class="bg-surface-container-low p-6 rounded-[2rem] border border-outline-variant/10 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 bg-white rounded-2xl text-primary">
+<span class="material-symbols-outlined">visibility</span>
+</div>
+<span class="text-tertiary font-bold text-xs bg-tertiary-fixed/30 px-2 py-1 rounded-full">+12%</span>
+</div>
+<p class="text-on-surface-variant text-sm font-bold uppercase tracking-wider">Total Views</p>
+<h3 class="text-4xl font-black text-on-surface mt-1">{{ totalViews }}</h3>
+</div>
+<div class="bg-surface-container-high p-6 rounded-[2rem] border border-outline-variant/10 shadow-sm scale-[1.02] ring-1 ring-primary/5">
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 bg-primary text-white rounded-2xl">
+<span class="material-symbols-outlined">bolt</span>
+</div>
+<span class="text-primary font-bold text-xs bg-primary-fixed/50 px-2 py-1 rounded-full">+4.5%</span>
+</div>
+<p class="text-on-primary-fixed-variant text-sm font-bold uppercase tracking-wider">Active Leads</p>
+<h3 class="text-4xl font-black text-on-primary-container mt-1">{{ activeLeads }}</h3>
+</div>
+<div class="bg-surface-container-low p-6 rounded-[2rem] border border-outline-variant/10 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 bg-white rounded-2xl text-secondary">
+<span class="material-symbols-outlined">inventory</span>
+</div>
+<span class="text-secondary font-bold text-xs bg-secondary-fixed/50 px-2 py-1 rounded-full">Stable</span>
+</div>
+<p class="text-on-surface-variant text-sm font-bold uppercase tracking-wider">Items listed</p>
+<h3 class="text-4xl font-black text-on-surface mt-1">{{ products.length }}</h3>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+<!-- Shop Profile Management -->
+<section class="lg:col-span-5">
+<div class="bg-surface-container-lowest p-8 rounded-[2.5rem] shadow-[0_20px_50px_rgba(157,67,0,0.04)] border border-outline-variant/10">
+<h4 class="text-xl font-extrabold mb-6 tracking-tight">Shop Identity</h4>
+<form class="space-y-6">
+
+<div class="flex flex-col gap-2">
+<label class="text-xs font-bold text-on-surface-variant uppercase tracking-widest px-1">Shop Banner (Couverture)</label>
+<div class="w-full h-32 rounded-2xl bg-surface-container-low overflow-hidden group relative cursor-pointer" (click)="triggerBannerInput()">
+<img *ngIf="vendorBanner" [src]="vendorBanner" class="w-full h-full object-cover" alt="Shop banner"/>
+<div *ngIf="!vendorBanner" class="w-full h-full flex flex-col items-center justify-center text-on-surface-variant">
+  <span class="material-symbols-outlined text-3xl">add_photo_alternate</span>
+  <span class="text-xs font-medium mt-1">Ajouter une bannière</span>
+</div>
+<div *ngIf="isUploadingBanner" class="absolute inset-0 bg-black/50 flex items-center justify-center">
+  <svg class="animate-spin h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> 
+</div>
+<div *ngIf="!isUploadingBanner" class="absolute inset-0 bg-primary/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white">edit</span>
+</div>
+</div>
+<input type="file" id="bannerInput" class="hidden" accept="image/*" (change)="onBannerSelected($event)">
+</div>
+
+<div class="flex flex-col gap-2">
+<label class="text-xs font-bold text-on-surface-variant uppercase tracking-widest px-1">Shop Name</label>
+<input class="w-full bg-surface-container-low border-none rounded-2xl py-4 px-5 text-on-surface font-medium focus:ring-2 focus:ring-primary transition-all" type="text" name="vName" [(ngModel)]="vendorName"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-xs font-bold text-on-surface-variant uppercase tracking-widest px-1">Description</label>
+<textarea class="w-full bg-surface-container-low border-none rounded-2xl py-4 px-5 text-on-surface font-medium focus:ring-2 focus:ring-primary transition-all resize-none" rows="4" name="vDesc" [(ngModel)]="vendorDesc"></textarea>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-xs font-bold text-on-surface-variant uppercase tracking-widest px-1">Ville / Emplacement</label>
+<input class="w-full bg-surface-container-low border-none rounded-2xl py-4 px-5 text-on-surface font-medium focus:ring-2 focus:ring-primary transition-all" type="text" name="vCity" [(ngModel)]="vendorCity" placeholder="Ex: Abidjan"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-xs font-bold text-on-surface-variant uppercase tracking-widest px-1">WhatsApp Number</label>
+<div class="relative">
+<span class="absolute left-5 top-1/2 -translate-y-1/2 text-on-surface-variant font-bold">+225</span>
+<input class="w-full bg-surface-container-low border-none rounded-2xl py-4 pl-16 pr-5 text-on-surface font-medium focus:ring-2 focus:ring-primary transition-all" type="text" name="vPhone" [(ngModel)]="vendorWhatsapp"/>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-xs font-bold text-on-surface-variant uppercase tracking-widest px-1">Shop Logo</label>
+<div class="flex items-center gap-6 mt-2">
+<div (click)="triggerLogoInput()" class="w-24 h-24 rounded-3xl bg-surface-container overflow-hidden group relative cursor-pointer">
+<img [src]="vendorLogo" class="w-full h-full object-cover" alt="Shop logo"/>
+<div *ngIf="isUploadingLogo" class="absolute inset-0 bg-black/50 flex items-center justify-center">
+  <svg class="animate-spin h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> </div>
+<div *ngIf="!isUploadingLogo" class="absolute inset-0 bg-primary/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-white">edit</span>
+</div>
+</div>
+<div class="flex-1">
+<input type="file" id="logoInput" class="hidden" accept="image/*" (change)="onLogoSelected($event)">
+<p class="text-sm font-medium text-on-surface-variant">JPG, PNG or SVG. Max 2MB.</p>
+<button (click)="triggerLogoInput()" class="mt-2 text-primary font-bold text-sm hover:underline" type="button" [disabled]="isUploadingLogo">
+  {{ isUploadingLogo ? 'Chargement...' : 'Remplacer le Logo' }}
+</button>
+</div>
+</div>
+</div>
+<button type="button" (click)="saveProfile()" [disabled]="isSaving" class="w-full bg-on-surface text-surface py-4 rounded-2xl font-bold active:scale-[0.98] transition-all mt-4">
+  {{ isSaving ? 'Sauvegarde...' : 'Save Profile Changes' }}
+</button>
+</form>
+</div>
+</section>
+<!-- Inventory List -->
+<section class="lg:col-span-7">
+<div class="flex justify-between items-end mb-6">
+<h4 class="text-xl font-extrabold tracking-tight">Current Inventory</h4>
+<a class="text-primary font-bold text-sm hover:underline" href="#">View All</a>
+</div>
+<div class="space-y-4">
+<!-- Dynamic Inventory -->
+<div *ngIf="isLoading" class="text-center py-8">Chargement de votre inventaire...</div>
+
+<div *ngIf="!isLoading && products.length === 0" class="text-center py-8 text-stone-500 italic">
+   Aucun produit listé
+</div>
+
+<div *ngIf="!isLoading && products.length > 0" class="space-y-4">
+  <div *ngFor="let product of products" class="bg-surface-container-low hover:bg-surface-container-high transition-colors p-4 rounded-3xl flex items-center gap-5">
+    <img *ngIf="product.images && product.images.length > 0" [src]="product.images[0]" class="w-20 h-20 rounded-2xl object-cover" [alt]="product.nom">
+    <div *ngIf="!product.images || product.images.length === 0" class="w-20 h-20 rounded-2xl bg-stone-200 flex items-center justify-center text-xs text-stone-500">Sans image</div>
+    
+    <div class="flex-1">
+      <h5 class="font-bold text-on-surface">{{ product.nom }}</h5>
+      <p class="text-xs font-bold text-primary tracking-tighter uppercase">{{ product.prix }} CFA</p>
+      
+      <div class="flex items-center gap-2 mt-2">
+        <span class="w-2 h-2 rounded-full" [ngClass]="product.quantite_stock > 5 ? 'bg-tertiary' : 'bg-error'"></span>
+        <span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">{{ product.quantite_stock }} en Stock</span>
+      </div>
+    </div>
+    
+    <div class="flex gap-2">
+      <button class="p-2 bg-white text-on-surface rounded-xl hover:bg-stone-100 active:scale-90 transition-all shadow-sm">
+        <span class="material-symbols-outlined text-xl">edit_note</span>
+      </button>
+      <button (click)="deleteProduct(product.id)" class="p-2 bg-white text-error rounded-xl hover:bg-error/5 active:scale-90 transition-all shadow-sm">
+        <span class="material-symbols-outlined text-xl">delete</span>
+      </button>
+    </div>
+  </div>
+</div>
+</div>
+<!-- Empty State / Add Suggestion -->
+<div class="mt-8 border-2 border-dashed border-outline-variant/30 rounded-[2.5rem] p-10 flex flex-col items-center justify-center text-center">
+<div class="w-16 h-16 bg-surface-container rounded-full flex items-center justify-center text-on-surface-variant mb-4">
+<span class="material-symbols-outlined text-3xl">add_circle</span>
+</div>
+<h5 class="font-bold text-on-surface">Expand your storefront</h5>
+<p class="text-sm text-on-surface-variant max-w-[240px] mt-1">Listing more items increases your visibility in the Marketplace by 40%.</p>
+<button routerLink="/vendor-interface/add-product" class="mt-6 text-primary font-extrabold uppercase tracking-widest text-xs hover:scale-105 transition-transform">Add New Product</button>
+</div>
+</section>
+</div>

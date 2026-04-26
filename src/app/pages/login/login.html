@@ -31,12 +31,12 @@
                         </p>
 </div>
 <!-- Login Form -->
-<form class="space-y-6">
+<form class="space-y-6" (ngSubmit)="onSubmit()">
 <div class="space-y-2">
 <label class="block text-sm font-bold text-on-surface-variant ml-1 font-label" for="email">Adresse e-mail</label>
 <div class="relative">
 <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline" data-icon="mail">mail</span>
-<input class="w-full pl-12 pr-4 py-4 bg-surface-container-low border-none rounded-xl focus:ring-2 focus:ring-primary/20 focus:bg-surface-container transition-all outline-none text-on-surface placeholder:text-outline/60" id="email" name="email" placeholder="nom@boutique.ci" type="email"/>
+<input class="w-full pl-12 pr-4 py-4 bg-surface-container-low border-none rounded-xl focus:ring-2 focus:ring-primary/20 focus:bg-surface-container transition-all outline-none text-on-surface placeholder:text-outline/60" id="email" name="emailOrSiret" placeholder="nom@boutique.ci" type="text" [(ngModel)]="loginObj.emailOrSiret" required/>
 </div>
 </div>
 <div class="space-y-2">
@@ -46,7 +46,7 @@
 </div>
 <div class="relative">
 <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline" data-icon="lock">lock</span>
-<input class="w-full pl-12 pr-12 py-4 bg-surface-container-low border-none rounded-xl focus:ring-2 focus:ring-primary/20 focus:bg-surface-container transition-all outline-none text-on-surface placeholder:text-outline/60" id="password" name="password" placeholder="••••••••" type="password"/>
+<input class="w-full pl-12 pr-12 py-4 bg-surface-container-low border-none rounded-xl focus:ring-2 focus:ring-primary/20 focus:bg-surface-container transition-all outline-none text-on-surface placeholder:text-outline/60" id="password" name="password" placeholder="••••••••" type="password" [(ngModel)]="loginObj.password" required/>
 <button class="absolute right-4 top-1/2 -translate-y-1/2 text-outline hover:text-on-surface-variant transition-colors" type="button">
 <span class="material-symbols-outlined" data-icon="visibility">visibility</span>
 </button>
@@ -56,8 +56,11 @@
 <input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary/20" id="remember" type="checkbox"/>
 <label class="text-sm font-medium text-on-surface-variant cursor-pointer select-none" for="remember">Rester connecté</label>
 </div>
-<button class="w-full py-4 px-6 bg-gradient-to-r from-primary to-primary-container text-white font-bold rounded-xl text-lg shadow-[0_10px_30px_rgba(157,67,0,0.2)] hover:shadow-[0_15px_40px_rgba(157,67,0,0.3)] hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-200" type="submit">
-                            Se connecter
+<div *ngIf="errorMessage" class="text-red-500 text-sm font-semibold text-center mt-2 mb-2">{{ errorMessage }}</div>
+  <div *ngIf="successMessage" class="text-green-600 bg-green-50 p-4 rounded-xl text-sm mt-2 mb-4 font-semibold text-center border border-green-200">{{ successMessage }}</div>
+  <button [disabled]="isLoading" class="w-full py-4 px-6 bg-gradient-to-r from-primary disabled:opacity-50 to-primary-container text-white font-bold rounded-xl text-lg shadow-[0_10px_30px_rgba(157,67,0,0.2)] hover:shadow-[0_15px_40px_rgba(157,67,0,0.3)] hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-200" type="submit">
+                            <svg *ngIf="isLoading" class="animate-spin -ml-1 mr-3 h-5 w-5 text-white inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+  {{ isLoading ? "Connexion en cours..." : "Se connecter" }}
                         </button>
 </form>
 <!-- Trust Section -->
@@ -72,12 +75,6 @@
 </p>
 </div>
 </div>
-</div>
-<!-- Supporting Visual Link (Asymmetric Layout Hint) -->
-<div class="mt-8 flex justify-center items-center gap-8 px-4 opacity-60 hover:opacity-100 transition-opacity">
-<img class="w-16 h-16 rounded-full object-cover shadow-sm ring-4 ring-surface-container" data-alt="Close-up of artisan hands crafting a leather wallet in a warm sunlit workshop with wood textures" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZKjgsc9m4x6UaK-eilpetGdi7IWLbP73zvI_9AnSbRPT5QIu4JwXsY2EiBHQEdhSfBw1Y-AkAOrmWWwQNbyyMiduOGTTk76c0BJNVo-B8jyJKxP4D6MeF3Zc9Zz6uFlUkdTYLynmKJDRoYzVSB7_daGEW3NL7iugkpWs5oDLDl8O8MKQ0gGWoCs2K_LQ7mAyU124zweC03hGvE-J04fLzLPPz-KMY2ZZgAk-Uu1crPUiJMTjmZSNfjTRa9W676jqkGgYOigasy70"/>
-<img class="w-16 h-16 rounded-full object-cover shadow-sm ring-4 ring-surface-container" data-alt="High-end boutique interior with curated clothing racks and warm ambient lighting on wooden floors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0rPfWbkorEOFzMtfQPVWV9UYeyeab_e7QslGrZ6DOqptA6p6oQ22tESORokG1xeCX1j3lz5Vaf7B0d07bigswzVvx0QjPstnf8oC-MXNYbmB-KNCmoUnaEM_nI-eC0oxX_E9TSNkeK2D1w7IlqjMuOMTJSdoapKxAFUE46wYkzX-SVEMwMJfepn09ENvDhHaiwBJy9zsCu1zukBRafZzNkpF52ncge8JEFM9arnBbGqa7uumTpWEp7TRN3GSl9pzJ7vVb21rkk1Y"/>
-<img class="w-16 h-16 rounded-full object-cover shadow-sm ring-4 ring-surface-container" data-alt="Minimalist product photography of handmade ceramics with soft shadows on a beige textured background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtbqKK9AAqFm2hGQcp3n5uDJi3CfJU4WD6SPDSv4fVg6smKhonmyL0mgMnTyfuMEWJtTe1cceqU89tsyjUTJObzBBx7TZXgokxHG02nx01nPhShTSLtIsmxbSz1o4SygyJ7etvAawWx6ekYyXn_JBMcISVWs_Y0PIektKD38-01uy1f0UqI4yil-i18pmthC9A_afHPTnEK1yRCGbHrMZpluU6dWlb2vuIDBTq18lvNlfRqg_QEFsHph_DLQE0ud6wov01Uu2Bhys"/>
 </div>
 </div>
 </main>

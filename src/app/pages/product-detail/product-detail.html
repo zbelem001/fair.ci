@@ -1,189 +1,109 @@
 
-<!-- TopNavBar -->
-<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-stone-950/80 backdrop-blur-md shadow-[0_20px_50px_rgba(157,67,0,0.08)]">
-<div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
-<div routerLink="/" class="text-2xl font-black text-orange-500 tracking-tighter font-['Plus_Jakarta_Sans'] cursor-pointer">Fair.ci</div>
-<div class="flex items-center gap-4">
-<button class="p-2 text-stone-600 hover:text-orange-600 transition-transform active:scale-95">
-<span class="material-symbols-outlined">shopping_basket</span>
-</button>
-<button class="p-2 text-stone-600 hover:text-orange-600 transition-transform active:scale-95">
-<span class="material-symbols-outlined">account_circle</span>
-</button>
+<div *ngIf="isLoading" class="flex justify-center items-center h-screen space-y-4 flex-col pt-32">
+  <svg class="animate-spin h-10 w-10 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+  <p class="font-bold text-on-surface-variant">Chargement du produit...</p>
 </div>
-</div>
-</header>
-<main class="pt-24 pb-32 max-w-7xl mx-auto px-6">
+
+<main *ngIf="!isLoading && product" class="pt-24 pb-32 max-w-7xl mx-auto px-6">
 <!-- Breadcrumb & Back Link -->
 <nav class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
 <div class="flex items-center text-sm text-on-surface-variant gap-2">
-<a class="hover:text-primary transition-colors" href="#">Marketplace</a>
+<a routerLink="/" class="hover:text-primary transition-colors cursor-pointer">Marketplace</a>
 <span class="material-symbols-outlined text-xs">chevron_right</span>
-<a class="hover:text-primary transition-colors" href="#">Décoration</a>
+<span class="text-on-surface">{{ product.categoryName || 'Divers' }}</span>
 <span class="material-symbols-outlined text-xs">chevron_right</span>
-<span class="font-semibold text-on-surface">Vase en Céramique Artisanale</span>
+<span class="font-semibold text-on-surface">{{ product.nom }}</span>
 </div>
-<a class="flex items-center gap-2 text-primary font-semibold hover:underline group" href="#">
+<a class="flex items-center gap-2 text-primary font-semibold hover:underline group cursor-pointer" routerLink="/">
 <span class="material-symbols-outlined text-sm transition-transform group-hover:-translate-x-1">arrow_back</span>
-                Back to Marketplace
-            </a>
+Back to Marketplace
+</a>
 </nav>
+
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
 <!-- Left: Image Gallery (Asymmetric Layout) -->
 <div class="lg:col-span-7 space-y-6">
 <div class="relative rounded-3xl overflow-hidden aspect-[4/5] bg-surface-container shadow-sm group">
-<img alt="Handcrafted Ceramic Vase" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Close-up of a handcrafted terracotta ceramic vase with organic textures and minimalist design in a sunlit studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4G_a8TqohyynT0R7OAeJ1yvWpKS9Ed47fm1iPaFlwzGv1edmc5VscpmLGfq9itXP1bFtsGXLWuT4GuNtSBJX8PC7ExdsPME7kGTaALoF9MR7Yj5rw0it2il1k6fVkFiyB-x0LiCis40NwludNNco5Y_kiSRQua-n_PW7eyvHSZQ4YcCUPdrULEv0OIBM_E9NnX2h1J5iRZsJw6stuB99B6HE2hnQF5cNmW2u7waYIpLT5e5T9c_Sw1h9xVubvcH_B5JcxAMZNM9U"/>
+<button class="absolute top-4 left-4 bg-white/70 backdrop-blur-md rounded-full w-10 h-10 flex items-center justify-center transition-all z-10" [ngClass]="favoritesService.isFavorite(product) ? 'text-red-500 rounded-full' : 'text-stone-500 hover:text-orange-500 hover:bg-white'" (click)="toggleFav($event)">
+<span class="material-symbols-outlined text-[24px]">favorite</span>
+</button>
+<img *ngIf="product.images && product.images.length > 0" [src]="product.images[activeImageIndex]" [alt]="product.nom" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+<div *ngIf="!product.images || product.images.length === 0" class="w-full h-full flex items-center justify-center text-stone-400 font-bold bg-stone-100">Aucune image disponible</div>
 </div>
-<div class="grid grid-cols-3 gap-4">
-<div class="rounded-2xl overflow-hidden aspect-square bg-surface-container-high cursor-pointer hover:ring-2 ring-primary transition-all">
-<img alt="Detail 1" class="w-full h-full object-cover" data-alt="Macro detail of hand-carved patterns on a clay surface with warm natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZXnpVONTscOAERhAvJ-OYKcMD9Uzt4elXqrSMGWCiEJF0Q938BFd_dpXuFzjUngtvuI9OGbSoMUbkp9Vfk-Yyp6nMblrkKdTqCDVwWj9-kfQ4aBI4Gms0l_XOj3tFm3t9g7uOE4ZDHaUQCNBrfik6Mt_N_7kd9ycuVf9d3vCYvDELBRJhcIeukJ75xtTBsJVkWwEbDmw3nKV9lKpLzfEbzr4esSNyIuOxCl-cONEbAPrtEp_gPc-QBgUaU90JoYC-dxMCBR8o7vg"/>
-</div>
-<div class="rounded-2xl overflow-hidden aspect-square bg-surface-container-high cursor-pointer hover:ring-2 ring-primary transition-all">
-<img alt="Detail 2" class="w-full h-full object-cover" data-alt="Side view of a rustic ceramic vase on a wooden table next to dried flowers" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAN2__t58YEl7bJJF_DzyVGzhiPiXVade2RhEK7MbwBfIXzkBl9yY1MIoJvgA0I8FFMVitYonPz0_pjoPyJMxtUB0ptonMlAyxPjxM4RUW4-GMc4_lwlC0jYiAI-xuUYwRuZ883yiSmy5SelaYe53ccnS1RaaiQF4mGqE-M1I0z7lKx6HCSIupIHL6lJWSrrVfrOC-8i0oC-4XJhJr2Et6XwNW6sV-lfP3EpgjDGb06RftV3dnBIyXAdLVd1LIF_OMWW3_MojSPBF4"/>
-</div>
-<div class="rounded-2xl overflow-hidden aspect-square bg-surface-container-high cursor-pointer hover:ring-2 ring-primary transition-all">
-<img alt="Detail 3" class="w-full h-full object-cover" data-alt="An artisan's workshop with pottery tools and unfinished clay vessels in the background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlmKh8GIBxYF_3yO6mGxpgknk1shOM5BU4wNMDHZ4UKdfgpfroEUXY1-UBv08Yzon7H98Fdf4bY4mtppeZNjDgMMnX7QK-Skbfhp8H-nyon-n-Cn48JZ7-Bs0wHo7pVYvrupW_spIR_cqCuzgm-t3xpY4W-TQGzPISg08uaxcpvc9tVh-4OABM6bqeg94xn-8ccOKJrO6ZOQHTiwlyF0Hmx33jsgEtfWpeateYLszWyekBhlmN6AnQq-rY0tfgNhyIPME3FNwbVIU"/>
-</div>
+
+<div class="grid grid-cols-3 gap-4" *ngIf="product.images && product.images.length > 1">
+<div *ngFor="let img of product.images; let i = index" (click)="setActiveImage(i)" [ngClass]="{'ring-2 ring-primary': activeImageIndex === i}" class="rounded-2xl overflow-hidden aspect-square bg-surface-container-high cursor-pointer hover:ring-2 hover:ring-primary/50 transition-all">
+<img [src]="img" class="w-full h-full object-cover" [alt]="'Miniature ' + i"/>
 </div>
 </div>
+</div>
+
 <!-- Right: Product Information -->
 <div class="lg:col-span-5 flex flex-col">
 <div class="sticky top-28 space-y-8">
 <!-- Title & Price -->
 <div class="space-y-4">
-<h1 class="text-4xl md:text-5xl font-extrabold text-on-surface tracking-tight leading-tight">Vase en Céramique "Lumière d'Abidjan"</h1>
+<h1 class="text-4xl md:text-5xl font-extrabold text-on-surface tracking-tight leading-tight">{{ product.nom }}</h1>
 <div class="flex items-baseline gap-2">
-<span class="text-4xl font-black text-primary-container">25.000 FCFA</span>
-<span class="text-on-surface-variant line-through text-lg">32.000 FCFA</span>
+<span class="text-4xl font-black text-primary-container">{{ product.prix }} FCFA</span>
+<span *ngIf="product.prix_reduit" class="text-on-surface-variant line-through text-lg">{{ product.prix_reduit }} FCFA</span>
 </div>
 </div>
+
 <!-- Description -->
 <div class="bg-surface-container-low rounded-3xl p-8 space-y-4">
 <h3 class="font-bold text-lg">L'histoire du produit</h3>
-<p class="text-on-surface-variant leading-relaxed">
-                            Chaque pièce est unique, façonnée à la main par nos artisans à Grand-Bassam. Ce vase utilise une argile locale raffinée, offrant une texture organique qui capture la lumière de manière exceptionnelle. Parfait pour sublimer vos compositions florales ou comme pièce décorative minimaliste.
-                        </p>
+<p class="text-on-surface-variant leading-relaxed">{{ product.description }}</p>
 <div class="flex flex-wrap gap-3 pt-2">
-<span class="px-4 py-2 bg-white rounded-full text-xs font-semibold shadow-sm border border-outline-variant/10">Fait Main</span>
-<span class="px-4 py-2 bg-white rounded-full text-xs font-semibold shadow-sm border border-outline-variant/10">Argile Locale</span>
-<span class="px-4 py-2 bg-white rounded-full text-xs font-semibold shadow-sm border border-outline-variant/10">Édition Limitée</span>
+<span *ngIf="product.est_phare" class="px-4 py-2 bg-primary/10 text-primary rounded-full text-xs font-bold shadow-sm">Produit Phare</span>
+<span class="px-4 py-2 bg-white rounded-full text-xs font-semibold shadow-sm border border-outline-variant/10">{{ product.quantite_stock > 0 ? "En Stock" : "Rupture" }}</span>
 </div>
 </div>
+
 <!-- Seller Section -->
 <div class="flex items-center justify-between p-6 bg-surface-container-highest/30 rounded-3xl border border-outline-variant/20">
 <div class="flex items-center gap-4">
-<div class="w-16 h-16 rounded-2xl overflow-hidden bg-white shadow-md">
-<img alt="Artisan Logo" class="w-full h-full object-cover" data-alt="A smiling West African woman artisan in a colorful headwrap working in her pottery studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmxsdMo_4ofIAwP-A9uZBg1Y1-4risYeINdlRHporoVeTxGor9N4tLyn-HYuifHf0i6R2jh4icv-54d70jo5ktmRMGZ8EVXeIX0D191-h8NWCNQMqJ8YGqoNriszz-pSDps9HK6_QG2AVOVUiIPDuowQjMVlFLdWxZqcuVIti_wGhz07agjLIKte8D8-2XIRCf8SjRCtSzSmEQ_JIbyxKcDw_RFAWGYUfCylfJ1KnYgdOg9T-E0kwQ3Oq98mKg4aWPdpqkaoNqYP0"/>
+<div class="w-16 h-16 rounded-2xl overflow-hidden bg-stone-200 shadow-md flex items-center justify-center">
+<img *ngIf="product.vendorLogo" [src]="product.vendorLogo" class="w-full h-full object-cover"/>
+<span *ngIf="!product.vendorLogo" class="material-symbols-outlined text-stone-400 text-3xl">storefront</span>
 </div>
 <div>
-<h4 class="font-bold text-lg">Bassam Créations</h4>
+<h4 class="font-bold text-lg">{{ product.vendorStoreName || 'Boutique' }}</h4>
 <div class="flex items-center gap-1 text-tertiary">
-<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: \'FILL\' 1;">verified</span>
 <span class="text-xs font-bold uppercase tracking-wider">Verified Seller</span>
 </div>
 </div>
 </div>
-<a routerLink="/shop/1" class="text-primary font-bold hover:underline cursor-pointer">Voir la boutique</a>
+<a [routerLink]="['/shop', product.boutique_id]" class="text-primary font-bold hover:underline cursor-pointer">Voir la boutique</a>
 </div>
+
 <!-- CTA Section -->
 <div class="space-y-4">
-<button class="w-full flex items-center justify-center gap-3 py-5 bg-[#16A34A] hover:bg-[#128C3E] text-white rounded-2xl font-bold text-lg shadow-xl shadow-tertiary/20 transition-all active:scale-95 group">
-<svg class="w-6 h-6 fill-current" viewbox="0 0 24 24">
+<a *ngIf="product.vendorPhone" [href]="'https://wa.me/' + product.vendorPhone + '?text=Bonjour,%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20votre%20produit%20:%20' + product.nom" target="_blank" class="w-full flex items-center justify-center gap-3 py-5 bg-[#25D366] hover:bg-[#128C3E] text-white rounded-2xl font-bold text-lg shadow-xl shadow-[#25D366]/20 transition-all active:scale-95 group cursor-pointer">
+<svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
 <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.284l-.539 2.016 2.057-.54c.951.52 1.987.859 3.232.859 3.18 0 5.766-2.586 5.766-5.766s-2.586-5.766-5.767-5.766zm3.332 7.741c-.134.377-.665.688-1.077.74-.287.037-.663.064-1.071-.064-.241-.076-.51-.183-.878-.344-1.571-.689-2.589-2.284-2.668-2.388-.078-.103-.639-.851-.639-1.623 0-.771.405-1.15.548-1.304.144-.154.31-.192.413-.192l.298.006c.092.003.216-.035.337.257.134.324.457 1.111.497 1.192.04.08.067.173.013.281-.054.108-.081.186-.162.28-.081.094-.171.21-.243.281-.081.08-.166.168-.072.33.094.163.418.689.897 1.114.616.549 1.134.72 1.296.801.163.081.258.067.353-.041.094-.108.405-.472.513-.633.108-.162.216-.135.352-.084.136.051.86.405 1.009.479.148.075.247.112.285.176.038.063.038.365-.096.741z"></path>
 <path d="M12 2C6.477 2 2 6.477 2 12c0 1.891.525 3.66 1.438 5.168L2 22l4.985-1.31A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18c-1.724 0-3.333-.513-4.685-1.396l-3.364.884.9-3.264A7.954 7.954 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"></path>
 </svg>
-                            Commander sur WhatsApp
-                        </button>
-<p class="text-center text-xs text-on-surface-variant px-8">
-                            En cliquant, vous serez redirigé vers une conversation WhatsApp sécurisée avec l'artisan.
-                        </p>
-</div>
+Commander sur WhatsApp
+</a>
+<p *ngIf="!product.vendorPhone" class="text-center text-error font-bold mt-4">Ce vendeur n\'a pas renseigné son numéro WhatsApp.</p>
 <!-- Meta -->
 <div class="pt-6 border-t border-outline-variant/20 flex justify-between">
 <div class="text-center flex-1 border-r border-outline-variant/20">
-<p class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold mb-1">Livraison</p>
-<p class="text-sm font-bold">24h - 48h</p>
-</div>
-<div class="text-center flex-1 border-r border-outline-variant/20">
-<p class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold mb-1">Retour</p>
-<p class="text-sm font-bold">7 Jours</p>
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold mb-1">Stock</p>
+<p class="text-sm font-bold" [ngClass]="product.quantite_stock > 0 ? 'text-tertiary' : 'text-error'">
+{{ product.quantite_stock }} restant(s)
+</p>
 </div>
 <div class="text-center flex-1">
-<p class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold mb-1">Stock</p>
-<p class="text-sm font-bold text-tertiary">En Stock</p>
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold mb-1">Mise à jour</p>
+<p class="text-sm font-bold">{{ product.date_mise_a_jour | date:'dd/MM/yyyy' }}</p>
 </div>
 </div>
 </div>
 </div>
 </div>
-<!-- Similar Products Section (Bento Grid Style) -->
-<section class="mt-24 space-y-12">
-<div class="flex items-center justify-between">
-<h2 class="text-3xl font-bold tracking-tight">Découvrez d'autres pépites</h2>
-<a class="text-primary font-bold hover:underline" href="#">Voir tout</a>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-<!-- Large Featured Bento Card -->
-<div class="md:col-span-2 md:row-span-2 rounded-3xl overflow-hidden relative group bg-surface-container-high">
-<img alt="Woven Basket" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Handwoven traditional African basket with intricate geometric patterns in a clean studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzyzxTa4lMo2L_nKoCKmd70_C7KKniB0v_pWzjl45Vb2lGaYzfOljwv1yUph3yoSngB6V_pN63nE5LW6RAg6-aIHVo-wZ-LoE1apdmEfBTcc8-WCqcWAy44ooIadv8mPZWcF6fgaWWLWf0iyywEwt3fRd-vIFTxYMiFjEBMNipGnGfqXc8q74xuvJs2l23Aafj40GnjKhJFx2d6LAVIF5Yt1rdIrHROOn4G7iJgyFK-THxs61S4_dbR8j4PaWBiLHeb5m7OtvogZA"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex flex-col justify-end p-8 text-white">
-<span class="text-xs font-bold uppercase tracking-widest mb-2 opacity-80">Collection Vanille</span>
-<h3 class="text-2xl font-bold mb-4">Paniers Tissés Main</h3>
-<div class="flex items-center gap-4">
-<span class="px-6 py-2 bg-white text-on-surface rounded-full text-sm font-bold">12.000 FCFA</span>
-</div>
-</div>
-</div>
-<!-- Smaller Grid Items -->
-<div class="rounded-3xl overflow-hidden bg-white shadow-sm border border-outline-variant/10 group">
-<div class="aspect-square overflow-hidden">
-<img alt="Lamp" class="w-full h-full object-cover transition-transform group-hover:scale-110" data-alt="Modern desk lamp with a base made of raw natural stone and a minimalist fabric shade" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjnc1QPn6p8lN7mppg4K7NT9osHu3fbrUstStb0VD_35fLIgtj0ihBJXXW_of81sWUB7DpQEuOsiiE9m9QwiNXxQd5eA5qorEI7Fu_xtHyudL-G5jiVm0EXbyDnckizCP0LltARRlD17yzGVAkTI_XE6T5mUa6RLxNTLLpndMHH2ajdjLVjRxFXTc68w_7U4qj5GATErTx2EoHWBhLQ7YCT1zA0z_lMDMU5oycsx5UxzFBCjrUl-x2FdOWbVnfvcTLs6DrMm3bJA0"/>
-</div>
-<div class="p-4 space-y-2">
-<h4 class="font-bold text-sm">Lampe Pierre Brute</h4>
-<p class="text-primary font-black">45.000 FCFA</p>
-</div>
-</div>
-<div class="rounded-3xl overflow-hidden bg-white shadow-sm border border-outline-variant/10 group">
-<div class="aspect-square overflow-hidden">
-<img alt="Chair" class="w-full h-full object-cover transition-transform group-hover:scale-110" data-alt="Minimalist wooden lounge chair with woven leather seat in a modern bright living room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_2NqslH8CT0ZLPaYWQePTgiDcerx_S9gghuIaD_9drphOZ8Fhp52_QGKdSKFUDdE-_TVXpFEYKokNzn3fl1ojplU7bq5qC8ybF2UCZ0rG9KTZsbLsB-EwgZ820rePQciS_YGPce8x6VUcy-4Tru-n0kxqTYeYQJors49o8VFQp4IvOk6TH7u2GThSFyxkLDW0GyMd3e8oJSXnoH-SwSYmzntlZfFdck8E-V-UvYQyLohMj26Frxm6M_vOuGKLHs5FkWd-nQw0r90"/>
-</div>
-<div class="p-4 space-y-2">
-<h4 class="font-bold text-sm">Fauteuil "Le Récit"</h4>
-<p class="text-primary font-black">110.000 FCFA</p>
-</div>
-</div>
-<div class="md:col-span-2 rounded-3xl overflow-hidden bg-surface-container flex flex-col md:flex-row group">
-<div class="flex-1 p-8 flex flex-col justify-center space-y-4">
-<h4 class="text-xl font-bold">Le Guide de l'Artisanat</h4>
-<p class="text-sm text-on-surface-variant">Découvrez comment nos produits sont fabriqués et l'impact de votre achat sur les communautés locales.</p>
-<a class="text-primary font-bold flex items-center gap-2" href="#">Lire l'article <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
-</div>
-<div class="w-full md:w-1/3 aspect-video md:aspect-auto">
-<img alt="Workshop" class="w-full h-full object-cover" data-alt="Artisans at work in a bright airy studio, sewing leather and weaving textiles" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVmjsdS4ZSz3L-JFeUDh7PuQAsYOYfNmlk59byEgteR1S_VPBsOwE8bAgRnnPBV2jQIz3jNN6TnaEgy3PucUBboNbnj6zXrAcfRK7Xm1kjiw-l5gvmyqW0mvbkMKFwY-NROlfML_mCsl6boucPVsewLXYrUgt4cVMMOrMxuAYoBNHkNS5YpxV1APSHwgnGhUSAPWBhFyq-o1O6-nCInJ7DfkhYJQYzmOG83-5icOynPD5pk_xhPZ1pH-jfWuXhiLtmVDY-6xNjjU8"/>
-</div>
-</div>
-</div>
-</section>
 </main>
-<!-- BottomNavBar (Mobile Only) -->
-<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-white/80 dark:bg-stone-950/80 backdrop-blur-md rounded-t-3xl z-50 shadow-[0_-10px_40px_rgba(0,0,0,0.05)] border-t border-stone-100/10">
-<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2" href="#">
-<span class="material-symbols-outlined" data-icon="home">home</span>
-<span class="text-[11px] font-bold uppercase tracking-widest mt-1">Home</span>
-</a>
-<a class="flex flex-col items-center justify-center bg-orange-100/50 dark:bg-orange-900/20 text-orange-700 dark:text-orange-400 rounded-2xl px-5 py-2" href="#">
-<span class="material-symbols-outlined" data-icon="search">search</span>
-<span class="text-[11px] font-bold uppercase tracking-widest mt-1">Explore</span>
-</a>
-<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2" href="#">
-<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
-<span class="text-[11px] font-bold uppercase tracking-widest mt-1">My Shop</span>
-</a>
-<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-500 px-5 py-2" href="#">
-<span class="material-symbols-outlined" data-icon="person">person</span>
-<span class="text-[11px] font-bold uppercase tracking-widest mt-1">Profile</span>
-</a>
-</nav>
-<!-- Footer Space for Mobile Nav -->
-<div class="h-20 md:hidden"></div>
+<div *ngIf="!isLoading && !product" class="text-center py-20 text-stone-500 font-bold">Produit introuvable.</div>

@@ -7,27 +7,24 @@
 <p class="text-xs text-stone-500 font-medium">Local Artisan Portal</p>
 </div>
 <nav class="flex-1 space-y-1">
-<a class="flex items-center gap-3 text-stone-500 hover:bg-stone-200 rounded-xl px-4 py-3 transition-all duration-200" href="#">
+<a routerLink="/" routerLinkActive="bg-orange-200 text-orange-800" [routerLinkActiveOptions]="{exact: true}" class="flex items-center gap-3 text-stone-500 hover:bg-stone-200 rounded-xl px-4 py-3 transition-all duration-200">
 <span class="material-symbols-outlined">storefront</span>
 <span>Marketplace</span>
 </a>
-<a class="flex items-center gap-3 bg-orange-50 text-orange-700 rounded-xl px-4 py-3 font-medium transition-all duration-200" href="#">
+<a routerLink="/vendor-interface" routerLinkActive="bg-orange-200 text-orange-800 font-bold" [routerLinkActiveOptions]="{exact: true}" class="flex items-center gap-3 text-stone-500 hover:bg-stone-200 rounded-xl px-4 py-3 transition-all duration-200">
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">store</span>
 <span>My Shop</span>
 </a>
-<a class="flex items-center gap-3 text-stone-500 hover:bg-stone-200 rounded-xl px-4 py-3 transition-all duration-200" href="#">
-<span class="material-symbols-outlined">inventory_2</span>
-<span>Inventory</span>
+<a routerLink="/vendor-interface/add-product" routerLinkActive="bg-orange-200 text-orange-800 font-bold" class="flex items-center gap-3 text-stone-500 hover:bg-stone-200 rounded-xl px-4 py-3 transition-all duration-200 cursor-pointer">
+<span class="material-symbols-outlined">add_circle</span>
+<span>Ajouter produit</span>
 </a>
-<a class="flex items-center gap-3 text-stone-500 hover:bg-stone-200 rounded-xl px-4 py-3 transition-all duration-200" href="#">
-<span class="material-symbols-outlined">receipt_long</span>
-<span>Orders</span>
-</a>
+
 </nav>
 <div class="mt-auto pt-6 border-t border-stone-200">
-<button class="w-full bg-gradient-to-r from-primary to-primary-container text-white py-3 px-4 rounded-xl font-bold shadow-[0_10px_30px_rgba(157,67,0,0.15)] active:scale-95 transition-all flex items-center justify-center gap-2">
-<span class="material-symbols-outlined">add</span>
-<span>Add Product</span>
+<button (click)="logout()" class="w-full bg-stone-100 hover:bg-stone-200 text-stone-700 py-3 px-4 rounded-xl font-bold shadow-sm active:scale-95 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">logout</span>
+<span>Déconnexion</span>
 </button>
 </div>
 </div>
@@ -36,174 +33,26 @@
 <main class="flex-1 md:ml-64 p-6 md:p-10 mb-20 md:mb-0">
 <!-- Header / Top Bar Profile -->
 <header class="flex justify-between items-center mb-10">
-<div>
-<h2 class="text-3xl font-extrabold text-on-surface tracking-tighter">Shop Overview</h2>
-<p class="text-on-surface-variant font-medium">Managing your digital artisan footprint</p>
+<div class="flex-1">
+<a routerLink="/" class="inline-flex items-center gap-2 bg-stone-100 hover:bg-stone-200 text-stone-700 py-2 px-4 rounded-xl font-bold transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+Retourner au marketplace
+</a>
 </div>
 <div class="flex items-center gap-4">
 <div class="text-right hidden sm:block">
-<p class="text-sm font-bold">Kouassi Artisans</p>
-<p class="text-xs text-on-surface-variant">Merchant ID: #7721</p>
+<p class="text-sm font-bold">{{ vendorName }}</p>
+<p class="text-xs text-on-surface-variant">Merchant ID: #{{ vendorId }}</p>
 </div>
 <img class="w-12 h-12 rounded-full object-cover border-2 border-primary-fixed shadow-sm" data-alt="portrait of a proud West African artisan smiling warmly in his studio workshop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmJDiSil8WIh0SqX10purA9iLddYJkxEd8K4NM-tu_qC9FQQ-cGYL9s2bLSk1aw2HeDaKXA51aT1gjqLg5rg4nXHxR83UGP7QedUUMj39LfnhfOkS-tLG2lguQvevkMtrihSiEkz9Eal6uhAYeO4WJ6qDutYnKL2-3N9E81ECwXkN9D4RjnpRveeyEm0iCNws0nRPRaurIvGqN0faE1afvm10LceYsg-xijWsYIrNX3faWnuyGOFOO5DmP3_XDkq5IhSteQH6lxUw"/>
 </div>
 </header>
-<!-- Stats Bento Grid -->
-<section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-<div class="bg-surface-container-low p-6 rounded-[2rem] border border-outline-variant/10 shadow-sm">
-<div class="flex justify-between items-start mb-4">
-<div class="p-3 bg-white rounded-2xl text-primary">
-<span class="material-symbols-outlined">visibility</span>
-</div>
-<span class="text-tertiary font-bold text-xs bg-tertiary-fixed/30 px-2 py-1 rounded-full">+12%</span>
-</div>
-<p class="text-on-surface-variant text-sm font-bold uppercase tracking-wider">Total Views</p>
-<h3 class="text-4xl font-black text-on-surface mt-1">2,840</h3>
-</div>
-<div class="bg-surface-container-high p-6 rounded-[2rem] border border-outline-variant/10 shadow-sm scale-[1.02] ring-1 ring-primary/5">
-<div class="flex justify-between items-start mb-4">
-<div class="p-3 bg-primary text-white rounded-2xl">
-<span class="material-symbols-outlined">bolt</span>
-</div>
-<span class="text-primary font-bold text-xs bg-primary-fixed/50 px-2 py-1 rounded-full">+4.5%</span>
-</div>
-<p class="text-on-primary-fixed-variant text-sm font-bold uppercase tracking-wider">Active Leads</p>
-<h3 class="text-4xl font-black text-on-primary-container mt-1">142</h3>
-</div>
-<div class="bg-surface-container-low p-6 rounded-[2rem] border border-outline-variant/10 shadow-sm">
-<div class="flex justify-between items-start mb-4">
-<div class="p-3 bg-white rounded-2xl text-secondary">
-<span class="material-symbols-outlined">inventory</span>
-</div>
-<span class="text-secondary font-bold text-xs bg-secondary-fixed/50 px-2 py-1 rounded-full">Stable</span>
-</div>
-<p class="text-on-surface-variant text-sm font-bold uppercase tracking-wider">Items listed</p>
-<h3 class="text-4xl font-black text-on-surface mt-1">18</h3>
-</div>
-</section>
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
-<!-- Shop Profile Management -->
-<section class="lg:col-span-5">
-<div class="bg-surface-container-lowest p-8 rounded-[2.5rem] shadow-[0_20px_50px_rgba(157,67,0,0.04)] border border-outline-variant/10">
-<h4 class="text-xl font-extrabold mb-6 tracking-tight">Shop Identity</h4>
-<form class="space-y-6">
-<div class="flex flex-col gap-2">
-<label class="text-xs font-bold text-on-surface-variant uppercase tracking-widest px-1">Shop Name</label>
-<input class="w-full bg-surface-container-low border-none rounded-2xl py-4 px-5 text-on-surface font-medium focus:ring-2 focus:ring-primary transition-all" type="text" value="Kouassi Artisans"/>
-</div>
-<div class="flex flex-col gap-2">
-<label class="text-xs font-bold text-on-surface-variant uppercase tracking-widest px-1">Description</label>
-<textarea class="w-full bg-surface-container-low border-none rounded-2xl py-4 px-5 text-on-surface font-medium focus:ring-2 focus:ring-primary transition-all resize-none" rows="4">Handcrafted furniture and home decor pieces inspired by traditional Ivorian craftsmanship and modern minimalism.</textarea>
-</div>
-<div class="flex flex-col gap-2">
-<label class="text-xs font-bold text-on-surface-variant uppercase tracking-widest px-1">WhatsApp Number</label>
-<div class="relative">
-<span class="absolute left-5 top-1/2 -translate-y-1/2 text-on-surface-variant font-bold">+225</span>
-<input class="w-full bg-surface-container-low border-none rounded-2xl py-4 pl-16 pr-5 text-on-surface font-medium focus:ring-2 focus:ring-primary transition-all" type="text" value="07 00 00 00 00"/>
-</div>
-</div>
-<div class="flex flex-col gap-2">
-<label class="text-xs font-bold text-on-surface-variant uppercase tracking-widest px-1">Shop Logo</label>
-<div class="flex items-center gap-6 mt-2">
-<div class="w-24 h-24 rounded-3xl bg-surface-container overflow-hidden group relative cursor-pointer">
-<img class="w-full h-full object-cover" data-alt="minimalist logo featuring abstract ivory coast geometric patterns on a warm terracotta background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABurk6cupZWAxO3oDNMwRMFhfiDU4uoUkj4pJAzriTC_t_61jfqTU6Ghaqy2ZjT6WQdpARbP7Ec8qf21UUbTSqVFQnegXqbQOjSIYFH7xE9MNEOBY85dEATFA7DXC6HaJXRdD_ij4lSp-SHdb3MLGy6VG6fqI6eBj5xx1eM8sAyrYuS9zQEL7h0AlmAFy6S7XWJt7oEazEyayW6pQkmmLpymz3f2hRvboFOi-kYyOrEewHMoJRHU4d_JvnsjhT3tcdqO7laKVO73o"/>
-<div class="absolute inset-0 bg-primary/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-<span class="material-symbols-outlined text-white">edit</span>
-</div>
-</div>
-<div class="flex-1">
-<p class="text-sm font-medium text-on-surface-variant">JPG, PNG or SVG. Max 2MB.</p>
-<button class="mt-2 text-primary font-bold text-sm hover:underline" type="button">Replace Logo</button>
-</div>
-</div>
-</div>
-<button class="w-full bg-on-surface text-surface py-4 rounded-2xl font-bold active:scale-[0.98] transition-all mt-4">Save Profile Changes</button>
-</form>
-</div>
-</section>
-<!-- Inventory List -->
-<section class="lg:col-span-7">
-<div class="flex justify-between items-end mb-6">
-<h4 class="text-xl font-extrabold tracking-tight">Current Inventory</h4>
-<a class="text-primary font-bold text-sm hover:underline" href="#">View All</a>
-</div>
-<div class="space-y-4">
-<!-- Inventory Item 1 -->
-<div class="bg-surface-container-low hover:bg-surface-container-high transition-colors p-4 rounded-3xl flex items-center gap-5">
-<img class="w-20 h-20 rounded-2xl object-cover" data-alt="hand-carved solid wood modern dining chair with intricate tribal patterns" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdkWya0M56SZ5R4umVN_zvYlRyIbUquYV5psT_mwL3OZ50MBFy3lSrDzbpHKNZNT8XyeIHXfbH4vtV3G-_Jd9q3jG__-9jTOSJZzhuk7kjHA7p3CjER1R6IBqqpFV5eDY9wkd0GfusfS9PkdwIZqeQ3dBQcrvOJAuHMqCpdjg7hnI50O9TnMJ8fMwkTdpPEOTNSKv51j-PyogN07qAQBsc1uYEzzSjhJvUg9MRVJ9M5u_jN_4HzN_tN49TIAxzMiZElMsQuHFTvmw"/>
-<div class="flex-1">
-<h5 class="font-bold text-on-surface">Artisan Tribal Chair</h5>
-<p class="text-xs font-bold text-primary tracking-tighter uppercase">Furniture • $240.00</p>
-<div class="flex items-center gap-2 mt-2">
-<span class="w-2 h-2 rounded-full bg-tertiary"></span>
-<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">8 in Stock</span>
-</div>
-</div>
-<div class="flex gap-2">
-<button class="p-2 bg-white text-on-surface rounded-xl hover:bg-stone-100 active:scale-90 transition-all shadow-sm">
-<span class="material-symbols-outlined text-xl">edit_note</span>
-</button>
-<button class="p-2 bg-white text-error rounded-xl hover:bg-error/5 active:scale-90 transition-all shadow-sm">
-<span class="material-symbols-outlined text-xl">delete</span>
-</button>
-</div>
-</div>
-<!-- Inventory Item 2 -->
-<div class="bg-surface-container-low hover:bg-surface-container-high transition-colors p-4 rounded-3xl flex items-center gap-5">
-<img class="w-20 h-20 rounded-2xl object-cover" data-alt="contemporary ceramic vase with textured earthy finish and minimalist silhouette" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDAwcfS5KFLE0fwWa2R4nZkCgrF5S2-wAHBxZamOiBkAGEyTXaV83DJ8XP7l-wWKCzk0Yv9vQdTS68a8X1P9pNXjLrFA5DoqGaOFlFM-2SyT6--Gc83zgNA9D5NltdyO8TMvjNBeEB2XnKDbpy2ePQ48Z7eyTact1xvXYhJyoe0n91cOiYBGmmFFp5aCUI47Z3GEvznjo0LPmnekI2vL6X25e1rjD10m8xCQrn1GicQZQTjdbxVOSx2G4emNneAgTAYw2hueSB9-Q"/>
-<div class="flex-1">
-<h5 class="font-bold text-on-surface">Earthen Ceramic Vase</h5>
-<p class="text-xs font-bold text-primary tracking-tighter uppercase">Decor • $45.00</p>
-<div class="flex items-center gap-2 mt-2">
-<span class="w-2 h-2 rounded-full bg-tertiary"></span>
-<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">12 in Stock</span>
-</div>
-</div>
-<div class="flex gap-2">
-<button class="p-2 bg-white text-on-surface rounded-xl hover:bg-stone-100 active:scale-90 transition-all shadow-sm">
-<span class="material-symbols-outlined text-xl">edit_note</span>
-</button>
-<button class="p-2 bg-white text-error rounded-xl hover:bg-error/5 active:scale-90 transition-all shadow-sm">
-<span class="material-symbols-outlined text-xl">delete</span>
-</button>
-</div>
-</div>
-<!-- Inventory Item 3 -->
-<div class="bg-surface-container-low hover:bg-surface-container-high transition-colors p-4 rounded-3xl flex items-center gap-5">
-<img class="w-20 h-20 rounded-2xl object-cover" data-alt="luxury hand-woven textile throw with vibrant indigo and gold traditional patterns" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBi5O2Pl_jZjKRWD6baYpma_CmAygutw_PoxHRdILRhlqA_QObQmTiPGy9D35WE1wEUVaDlffVJ_IM5TmTOCSs9_jBpepf7PO_-nUs49YRz-lJuCpBqKmR0bySJxEN5VO8_boxrawAEw1Pg5frleVer-GmBZxME1xgAryXTR8A321OybcF5uH0CQUpuXxXEHu6vaAgkGz77Slv-QaRS0AWfcepqZcvlIEMEsheWtJmuEK_VWgoZ7I-eRpvf5TMvFnexguFssy9TpqQ"/>
-<div class="flex-1">
-<h5 class="font-bold text-on-surface">Woven Indigo Throw</h5>
-<p class="text-xs font-bold text-primary tracking-tighter uppercase">Textiles • $110.00</p>
-<div class="flex items-center gap-2 mt-2">
-<span class="w-2 h-2 rounded-full bg-error"></span>
-<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Low Stock: 2</span>
-</div>
-</div>
-<div class="flex gap-2">
-<button class="p-2 bg-white text-on-surface rounded-xl hover:bg-stone-100 active:scale-90 transition-all shadow-sm">
-<span class="material-symbols-outlined text-xl">edit_note</span>
-</button>
-<button class="p-2 bg-white text-error rounded-xl hover:bg-error/5 active:scale-90 transition-all shadow-sm">
-<span class="material-symbols-outlined text-xl">delete</span>
-</button>
-</div>
-</div>
-</div>
-<!-- Empty State / Add Suggestion -->
-<div class="mt-8 border-2 border-dashed border-outline-variant/30 rounded-[2.5rem] p-10 flex flex-col items-center justify-center text-center">
-<div class="w-16 h-16 bg-surface-container rounded-full flex items-center justify-center text-on-surface-variant mb-4">
-<span class="material-symbols-outlined text-3xl">add_circle</span>
-</div>
-<h5 class="font-bold text-on-surface">Expand your storefront</h5>
-<p class="text-sm text-on-surface-variant max-w-[240px] mt-1">Listing more items increases your visibility in the Marketplace by 40%.</p>
-<button class="mt-6 text-primary font-extrabold uppercase tracking-widest text-xs hover:scale-105 transition-transform">Add New Product</button>
-</div>
-</section>
-</div>
+
+            <router-outlet></router-outlet>
 </main>
 <!-- Mobile Navigation Shell (BottomNavBar) -->
 <nav class="md:hidden fixed bottom-0 left-0 w-full bg-white/80 dark:bg-stone-950/80 backdrop-blur-md border-t border-stone-100/10 shadow-[0_-10px_40px_rgba(0,0,0,0.05)] rounded-t-3xl z-50 flex justify-around items-center px-4 pb-6 pt-3">
-<a class="flex flex-col items-center justify-center text-stone-400 px-5 py-2 tap-highlight-transparent" href="#">
+<a routerLink="/" routerLinkActive="bg-orange-200 text-orange-800 rounded-2xl" [routerLinkActiveOptions]="{exact: true}" class="flex flex-col items-center justify-center text-stone-400 px-5 py-2 tap-highlight-transparent">
 <span class="material-symbols-outlined">home</span>
 <span class="text-[11px] font-bold uppercase tracking-widest mt-1">Home</span>
 </a>
@@ -211,7 +60,7 @@
 <span class="material-symbols-outlined">search</span>
 <span class="text-[11px] font-bold uppercase tracking-widest mt-1">Explore</span>
 </a>
-<a class="flex flex-col items-center justify-center bg-orange-100/50 text-orange-700 rounded-2xl px-5 py-2 tap-highlight-transparent" href="#">
+<a routerLink="/vendor-interface" routerLinkActive="bg-orange-200 text-orange-800 rounded-2xl" [routerLinkActiveOptions]="{exact: true}" class="flex flex-col items-center justify-center text-stone-400 px-5 py-2 tap-highlight-transparent">
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">storefront</span>
 <span class="text-[11px] font-bold uppercase tracking-widest mt-1">My Shop</span>
 </a>

@@ -1,0 +1,85 @@
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-stone-950/80 backdrop-blur-md shadow-[0_20px_50px_rgba(157,67,0,0.08)]">
+<nav class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+<div routerLink="/" class="text-2xl font-black text-orange-500 tracking-tighter cursor-pointer">Fair.ci</div>
+<div class="flex items-center gap-4">
+<button routerLink="/favorites" class="p-2 text-orange-500 transition-colors duration-200 active:scale-95">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</button>
+<button class="p-2 text-stone-600 hover:text-orange-500 transition-colors duration-200 active:scale-95">
+<span class="material-symbols-outlined text-[24px]">account_circle</span>
+</button>
+</div>
+</nav>
+</header>
+<main class="flex-grow pt-32 pb-20 px-6 max-w-7xl mx-auto w-full">
+<!-- Header Section -->
+<header class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-on-surface mb-2">Mes Favoris</h1>
+<p class="text-secondary font-medium flex items-center gap-2">
+<span class="bg-orange-100 text-orange-600 px-3 py-1 rounded-full text-sm">{{ favorites.length }} articles</span>
+<span class="text-sm text-stone-500">enregistrés dans votre sélection</span>
+</p>
+</div>
+<div class="flex items-center gap-3" *ngIf="favorites.length > 0">
+<button class="flex items-center gap-2 text-sm font-bold text-orange-500 hover:opacity-80 transition-all" (click)="favoritesService.clearFavorites()">
+<span class="material-symbols-outlined text-lg">delete</span>
+                    Vider ma liste
+                </button>
+</div>
+</header>
+<!-- Bento Grid of Product Cards -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" *ngIf="favorites.length > 0">
+<!-- Product Card -->
+<article *ngFor="let product of favorites" class="group relative bg-surface-container-lowest rounded-xl overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(157,67,0,0.08)] cursor-pointer" [routerLink]="['/product', product.id || product.produit_id]">
+<div class="relative aspect-[4/5] overflow-hidden bg-stone-100">
+<img [src]="product.image_url || product.images?.[0] || 'https://images.unsplash.com/photo-1544640808-32cb4f686417?q=80&w=2070'" alt="{{ product.nom_produit || product.nom }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"/>
+<button class="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center bg-white/90 backdrop-blur rounded-full text-red-500 shadow-sm hover:bg-white transition-all" (click)="removeFavorite(product, $event)">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center px-6">
+<button class="w-full py-3 bg-white text-stone-900 rounded-xl font-bold flex items-center justify-center gap-2 shadow-lg translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                            Voir Détails
+                        </button>
+</div>
+</div>
+<div class="p-6 bg-white border border-stone-100 rounded-b-xl">
+<h3 class="text-lg font-bold text-stone-900 mb-2 truncate">{{ product.nom_produit || product.nom }}</h3>
+<div class="flex justify-between items-center">
+<span class="text-xl font-extrabold text-orange-500">{{ product.prix_unitaire || product.prix || product.prix_base }} FCFA</span>
+</div>
+</div>
+</article>
+</section>
+<!-- CTA for Empty States -->
+<div *ngIf="favorites.length === 0" class="mt-10 text-center py-20 px-6 rounded-3xl bg-stone-50 border-2 border-dashed border-stone-200">
+<span class="material-symbols-outlined text-6xl text-stone-300 mb-6">heart_broken</span>
+<h2 class="text-2xl font-bold mb-2">Votre liste est vide</h2>
+<p class="text-stone-500 mb-8 max-w-md mx-auto">Vous n'avez pas encore d'articles favoris. Parcourez notre sélection pour trouver votre bonheur.</p>
+<button routerLink="/" class="px-8 py-4 bg-orange-500 text-white rounded-full font-bold shadow-lg hover:opacity-90 transition-all">
+                Explorer le Marché
+            </button>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-auto py-12 px-6 bg-stone-50 border-t border-stone-200/10 pt-12">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto">
+<div>
+<div class="text-lg font-black text-stone-900 mb-4">Fair.ci</div>
+<p class="font-sans text-xs uppercase tracking-widest text-stone-500 max-w-xs leading-relaxed">
+                    Soutenir l'artisanat local ivoirien par une plateforme numérique équitable et inspirante.
+                </p>
+</div>
+<div class="flex flex-col md:items-end gap-6">
+<div class="flex flex-wrap gap-6 font-sans text-xs uppercase tracking-widest">
+<a class="text-stone-500 hover:text-orange-500 transition-transform hover:translate-x-1" href="#">About Us</a>
+<a class="text-stone-500 hover:text-orange-500 transition-transform hover:translate-x-1" href="#">Shipping</a>
+<a class="text-stone-500 hover:text-orange-500 transition-transform hover:translate-x-1" href="#">Terms</a>
+<a class="text-stone-500 hover:text-orange-500 transition-transform hover:translate-x-1" href="#">Contact</a>
+</div>
+<div class="font-sans text-xs uppercase tracking-widest text-stone-400">
+                    © 2024 Fair.ci - The Digital Artisan Marketplace
+                </div>
+</div>
+</div>
+</footer>
