@@ -45,12 +45,15 @@
 </div>
 <div class="p-8 pt-0 -mt-8 relative z-10 flex flex-col flex-grow">
 <div class="w-16 h-16 rounded-2xl overflow-hidden border-4 border-surface-container-lowest shadow-sm mb-4 bg-white">
-<img class="w-full h-full object-cover" [src]="vendor.logo_url || 'https://ui-avatars.com/api/?name=' + vendor.nom_boutique" [alt]="'Logo ' + vendor.nom_boutique"/>
-</div>
+    <img *ngIf="vendor.logo_url" class="w-full h-full object-cover" [src]="vendor.logo_url" [alt]="'Logo ' + vendor.nom_boutique"/>
+    <div *ngIf="!vendor.logo_url" class="w-full h-full flex items-center justify-center bg-slate-100 text-stone-900 font-bold text-sm tracking-[0.3em] uppercase">
+      {{ vendor.initials }}
+    </div>
+  </div>
 <h3 class="text-xl font-bold font-headline text-on-surface mb-1">{{ vendor.nom_boutique }}</h3>
 <div class="flex items-center gap-1 text-secondary mb-4">
 <span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
-<span class="text-xs font-semibold uppercase tracking-widest">{{ vendor.ville || 'Côte d\\'Ivoire' }}</span>
+<span class="text-xs font-semibold uppercase tracking-widest">{{ vendor.ville || vendor.pays || "Côte d'Ivoire" }}</span>
 </div>
 <p class="text-sm text-on-surface-variant font-medium leading-relaxed mb-6 line-clamp-3">
     {{ vendor.description || 'Boutique artisanale en ligne.' }}

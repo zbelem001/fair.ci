@@ -38,8 +38,11 @@ export class SellerDashboardComponent implements OnInit {
     this.isLoading = true;
     this.http.get<any[]>('http://localhost:3000/vendor/all').subscribe({
       next: (data) => {
-        this.vendors = data;
-        this.filteredVendors = data;
+        this.vendors = data.map(vendor => ({
+          ...vendor,
+          initials: this.getVendorInitials(vendor)
+        }));
+        this.filteredVendors = this.vendors;
         this.isLoading = false;
         this.cdr.detectChanges();
       },
@@ -60,5 +63,23 @@ export class SellerDashboardComponent implements OnInit {
       // ou on peut mock le filtrage (car boutique n'a pas forcement de categorie unique)
       this.filteredVendors = this.vendors;
     }
+  }
+
+  getVendorInitials(vendor: any): string {
+    const words: string[] = [];
+    if (vendor.nom) words.push(vendor.nom);
+    if (vendor.prenom) words.push(vendor.prenom);
+    if (words.length === 0 && vendor.nom_boutique) {
+      words.push(...vendor.nom_boutique.split(' '));
+    }
+
+    const initials = words
+      .map(word => word?.trim()[0])
+      .filter(char => !!char)
+      .slice(0, 2)
+      .join('')
+      .toUpperCase();
+
+    return initials || 'V';
   }
 }
